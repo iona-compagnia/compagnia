@@ -19,6 +19,9 @@ function doPost(e) {
       data.email,
       data.message
     ]);
+
+    // Send email notification
+    sendEmailNotification(data);
     
     return ContentService.createTextOutput(JSON.stringify({ status: 'success' }))
       .setMimeType(ContentService.MimeType.JSON);
