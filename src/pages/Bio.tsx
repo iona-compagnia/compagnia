@@ -36,17 +36,17 @@ const Bio: FC = () => {
           </FadeIn>
         </div>
         <div className="bio-text-section">
-          <FadeIn delay={0.2} direction="left">
+          <FadeIn delay={0.3} direction="left">
             <h1 className="bio-name">{musician.displayName}</h1>
           </FadeIn>
           <div className="bio-text">
             {musician.bio.map((paragraph, index) => (
-              <FadeIn key={index} delay={0.3 + index * 0.1} direction="left">
+              <FadeIn key={index} delay={0.5 + index * 0.2} direction="left">
                 <p>{paragraph}</p>
               </FadeIn>
             ))}
           </div>
-          <FadeIn delay={0.4 + musician.bio.length * 0.1} direction="left">
+          <FadeIn delay={0.7 + musician.bio.length * 0.2} direction="left">
             <Link to="/musicians" className="back-link">← Back to Musicians</Link>
           </FadeIn>
         </div>

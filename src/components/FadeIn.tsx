@@ -23,12 +23,11 @@ const FadeIn: FC<FadeInProps> = ({ children, delay = 0, direction = 'up' }) => {
         y: directions[direction].y, 
         x: directions[direction].x 
       }}
-      whileInView={{ 
+      animate={{ 
         opacity: 1, 
         y: 0, 
         x: 0 
       }}
-      viewport={{ once: true, amount: 0.2 }}
       transition={{ 
         duration: 0.8, 
         delay: delay, 

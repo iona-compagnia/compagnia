@@ -20,32 +20,34 @@ const Events: FC = () => {
       <FadeIn>
         <h1 className="page-title">Events</h1>
       </FadeIn>
-      {(eventsData as Event[]).map((event, index) => (
-        <FadeIn key={event.id} delay={0.2 + index * 0.1}>
-          <div className="event-item">
-            <h2 className="event-name">{event.name}</h2>
-            <p className="event-date">{event.date}</p>
-            <p className="event-time">{event.time}</p>
-            <p className="event-location">{event.location}</p>
-            <div className="event-description">
-              <p>{event.description}</p>
-              <ul className="musician-list">
-                {event.musicians.map((musician, mIndex) => (
-                  <li key={mIndex}>{musician}</li>
-                ))}
-              </ul>
+      <div className="events-container">
+        {(eventsData as Event[]).map((event) => (
+          <FadeIn key={event.id} delay={0.2}>
+            <div className="event-item">
+              <h2 className="event-name">{event.name}</h2>
+              <p className="event-date">{event.date}</p>
+              <p className="event-time">{event.time}</p>
+              <p className="event-location">{event.location}</p>
+              <div className="event-description">
+                <p>{event.description}</p>
+                <ul className="musician-list">
+                  {event.musicians.map((musician, mIndex) => (
+                    <li key={mIndex}>{musician}</li>
+                  ))}
+                </ul>
+              </div>
+              <a 
+                href={event.ticketLink} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="tickets-button"
+              >
+                Tickets on Eventbrite
+              </a>
             </div>
-            <a 
-              href={event.ticketLink} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="tickets-button"
-            >
-              Tickets on Eventbrite
-            </a>
-          </div>
-        </FadeIn>
-      ))}
+          </FadeIn>
+        ))}
+      </div>
     </div>
   );
 };

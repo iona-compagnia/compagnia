@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import type { FC } from 'react';
 import './OptimizedImage.css';
 
@@ -10,15 +10,49 @@ interface OptimizedImageProps {
 
 const OptimizedImage: FC<OptimizedImageProps> = ({ src, alt, className = '' }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  // Reset and check cache when src changes
+  useEffect(() => {
+    // If the image is already in the browser cache, it might be 'complete' immediately
+    if (imgRef.current?.complete) {
+      setIsLoaded(true);
+      setHasError(false);
+    } else {
+      setIsLoaded(false);
+      setHasError(false);
+    }
+  }, [src]);
+
+  const handleLoad = () => {
+    setIsLoaded(true);
+    setHasError(false);
+  };
+
+  const handleError = () => {
+    setIsLoaded(false);
+    setHasError(true);
+    console.error(`Failed to load image: ${src}`);
+  };
 
   return (
     <div className={`optimized-image-container ${className}`}>
-      {!isLoaded && <div className="skeleton-loader" />}
+      {(!isLoaded && !hasError) && <div className="skeleton-loader" />}
+      {hasError && (
+        <div className="skeleton-loader error" style={{ background: '#f5f2ee', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <span style={{ color: '#b5a692', fontSize: '0.8rem' }}>Image unavailable</span>
+        </div>
+      )}
       <img
+        ref={imgRef}
+        key={src} // Force re-mount on src change
         src={src}
         alt={alt}
-        className={`optimized-image ${isLoaded ? 'loaded' : 'loading'}`}
-        onLoad={() => setIsLoaded(true)}
+        decoding="async"
+        className={`optimized-image ${isLoaded ? 'loaded' : 'loading'} ${hasError ? 'error' : ''}`}
+        onLoad={handleLoad}
+        onError={handleError}
       />
     </div>
   );

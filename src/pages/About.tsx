@@ -27,13 +27,13 @@ const About: FC = () => {
           <p>Our goals are simple:</p>
         </FadeIn>
         <ul className="goals-list">
-          <FadeIn delay={0.7}>
+          <FadeIn delay={0.65}>
             <li>Build awareness of traditional chamber music masterpieces.</li>
           </FadeIn>
-          <FadeIn delay={0.8}>
+          <FadeIn delay={0.7}>
             <li>Foster connection between musicians and audience members.</li>
           </FadeIn>
-          <FadeIn delay={0.9}>
+          <FadeIn delay={0.75}>
             <li>Create a third space for people to regularly gather around a unique artistic experience.</li>
           </FadeIn>
         </ul>

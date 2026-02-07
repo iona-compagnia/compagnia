@@ -34,15 +34,11 @@ const Director: FC = () => {
         <div className="bio-text-section">
           <FadeIn delay={0.2} direction="left">
             <h1 className="bio-name">{director.displayName}, Director</h1>
-          </FadeIn>
-          <div className="bio-text">
-            {director.bio.map((paragraph, index) => (
-              <FadeIn key={index} delay={0.3 + index * 0.1} direction="left">
-                <p dangerouslySetInnerHTML={{ __html: paragraph.replace(/Iona Batchelder/g, '<strong>Iona Batchelder</strong>') }} />
-              </FadeIn>
-            ))}
-          </div>
-          <FadeIn delay={0.7} direction="left">
+            <div className="bio-text">
+              {director.bio.map((paragraph, index) => (
+                <p key={index} dangerouslySetInnerHTML={{ __html: paragraph.replace(/Iona Batchelder/g, '<strong>Iona Batchelder</strong>') }} />
+              ))}
+            </div>
             <Link to="/musicians" className="back-link">← Back to Musicians</Link>
           </FadeIn>
         </div>

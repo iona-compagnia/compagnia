@@ -18,8 +18,8 @@ const Musicians: FC = () => {
         <h1 className="page-title">Musicians</h1>
       </FadeIn>
       <div className="musicians-grid">
-        {(musiciansData as Musician[]).map((musician, index) => (
-          <FadeIn key={musician.id} delay={index * 0.1}>
+        {(musiciansData as Musician[]).map((musician) => (
+          <FadeIn key={musician.id}>
             <MusicianCard 
               name={musician.name}
               imageSrc={musician.imageSrc}
