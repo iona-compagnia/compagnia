@@ -4,14 +4,19 @@ A modern, elegant web application for **Compagnia**, a chamber music collective 
 
 ## ✨ Features
 
-- **Dynamic Homepage**: Features a beautiful hero section with background art, a transparent logo overlay, and a real-time countdown to the next performance.
-- **Musician Directory**: A clean grid of performing artists with specialized logic to ensure photos are never cut off.
-- **Detailed Bios**: Individual pages for each musician, including a dedicated section for the Director.
-- **Event Tracking**: A specialized events page to showcase upcoming performances.
-- **Responsive Navigation**: Includes a custom mobile hamburger menu and dropdowns for easy exploration.
-- **Smooth Animations**: Scroll-triggered fade-in effects for a premium, cinematic feel.
-- **Optimized Images**: Custom `OptimizedImage` component for faster loading and better UX.
-- **Contact Integration**: Integrated contact form for inquiries.
+... [Features list] ...
+
+## 🎨 Quick Start for Non-Developers (iPad & Web)
+
+The easiest way to view or edit this project is using **GitHub Codespaces**. This gives you a full computer in your browser without needing to install anything.
+
+1.  **Open the Environment**: Click the green **"Code"** button at the top of this page, select the **Codespaces** tab, and click **"Create codespace on main"**.
+2.  **Wait for Setup**: A new tab will open with a code editor. Wait about 1-2 minutes for the bottom terminal to stop moving (it is automatically installing everything for you).
+3.  **View the App**: A small pop-up will appear in the bottom right saying *"Your application is running on port 5173"*. Click **"Open in Browser"** to see the live website!
+4.  **Make Changes**: 
+    - Open the `src/data/musicians.json` file to change musician names or bios.
+    - Open `src/pages/Home.tsx` to change the welcome text.
+    - Changes will appear on the live website preview instantly after you save!
 
 ## 🚀 Tech Stack
 
