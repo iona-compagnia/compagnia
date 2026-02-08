@@ -92,10 +92,11 @@
   .hero-container .hero-image.optimized-image-container {
     position: relative !important;
     order: 3;
-    width: calc(100% + 3rem); /* Bleed to edges */
-    margin: 2rem -1.5rem;
+    width: 100%;
+    margin: 1.5rem 0;
     height: auto;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/10;
+    max-height: 40vh;
     z-index: 1;
   }
 
