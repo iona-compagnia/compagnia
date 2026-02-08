@@ -57,12 +57,6 @@ src/
 └── App.tsx         # Root component and routing logic
 ```
 
-## 📝 TODO / Roadmap
-
-- [ ] **Simplify Content Management**: Connect the `events.json` and `musicians.json` data to a Google Sheet so the director can update the site without touching code.
-- [ ] **Image Upload Workflow**: Streamline how the director can upload new performance photos from an iPad.
-- [ ] **Admin Dashboard**: Create a simple, password-protected admin page for basic text updates.
-
 ## 🎹 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
