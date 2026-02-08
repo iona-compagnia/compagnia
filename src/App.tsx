@@ -13,7 +13,7 @@ import './App.css';
 
 const App: FC = () => {
   return (
-    <Router basename="/compagnia">
+    <Router>
       <div className="app">
         <Header />
         <main className="main-content">
