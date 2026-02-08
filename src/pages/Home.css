@@ -90,6 +90,13 @@
     border: none;
   }
 
+  /* Ensure all direct children (FadeIn wrappers) are full width */
+  .hero-container > * {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   /* Order 1: Logo and Subtitle */
   .hero-content > *:nth-child(1) { order: 1; } /* Logo FadeIn */
   .hero-content > *:nth-child(2) { order: 2; } /* Subtitle FadeIn */
