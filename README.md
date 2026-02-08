@@ -8,15 +8,15 @@ A modern, elegant web application for **Compagnia**, a chamber music collective 
 
 ## 🎨 Quick Start for Non-Developers (iPad & Web)
 
-The easiest way to view or edit this project is using **GitHub Codespaces**. This gives you a full computer in your browser without needing to install anything.
+The easiest way to edit this project is using **GitHub Codespaces**. This gives you a full computer in your browser.
 
-1.  **Open the Environment**: Click the green **"Code"** button at the top of this page, select the **Codespaces** tab, and click **"Create codespace on main"**.
-2.  **Wait for Setup**: A new tab will open with a code editor. Wait about 1-2 minutes for the bottom terminal to stop moving (it is automatically installing everything for you).
-3.  **View the App**: A small pop-up will appear in the bottom right saying *"Your application is running on port 5173"*. Click **"Open in Browser"** to see the live website!
-4.  **Make Changes**: 
-    - Open the `src/data/musicians.json` file to change musician names or bios.
-    - Open `src/pages/Home.tsx` to change the welcome text.
-    - Changes will appear on the live website preview instantly after you save!
+1.  **Open the Environment**: Click the green **"Code"** button at the top of this page, select **Codespaces**, and click **"Create codespace on main"**.
+2.  **Wait for Setup**: A new tab will open. You will see a `TODO.md` file with instructions. **Wait about 1 minute** while the system automatically installs everything and starts the preview.
+3.  **View the Website**: A pop-up will appear in the bottom right. Click **"Open in Browser"** to see your live preview.
+4.  **Using Gemini (AI Assistant)**:
+    - If you want the AI to change something for you, press `Cmd + Shift + P` (iPad/Mac) or `Ctrl + Shift + P` (Windows).
+    - Type **"Gemini"** and select **"Gemini: Focus on Gemini View"**.
+    - You can now chat with the AI to help you edit the site!
 
 ## 🚀 Tech Stack
 
@@ -26,35 +26,25 @@ The easiest way to view or edit this project is using **GitHub Codespaces**. Thi
 - **Styling**: Vanilla CSS (Custom properties and modern Layout APIs)
 - **Icons**: Custom SVG icons
 
-## 🛠️ Getting Started
+## 🛠️ Developer Setup (Local Mac/PC)
 
-### Prerequisites
+If you prefer to work locally on your own machine:
 
-- Node.js (v18 or higher recommended)
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository**:
+1. **Clone & Install**:
    ```bash
-   git clone https://github.com/erica-zhong/compagnia.git
+   git clone https://github.com/iona-compagnia/compagnia.git
    cd compagnia
-   ```
-
-2. **Install dependencies**:
-   ```bash
    npm install
    ```
 
-3. **Run the development server**:
+2. **Run Development Server**:
    ```bash
    npm run dev
    ```
+   The site will be available at `http://localhost:5173`.
 
-4. **Build for production**:
-   ```bash
-   npm run build
-   ```
+3. **Deploy Changes**:
+   Simply push your changes to the `main` branch. GitHub Actions will automatically build and deploy the site to **compagnia.org**.
 
 ## 📁 Project Structure
 
