@@ -27,6 +27,14 @@ The easiest way to edit this project is using **GitHub Codespaces**. This gives 
 2. Type a short note (e.g., "Updated bios") and click **Commit**.
 3. Click **Sync Changes** to make them live on **compagnia.org**.
 
+### 🛡️ The "Safety Gate" (Automated Checks)
+To ensure the website doesn't break, I've added an **Automated Safety Gate**. Every time you "Commit" and "Sync" your changes, a robot automatically checks two things:
+1.  **Code Quality**: It makes sure there are no typos or mistakes in the hidden code.
+2.  **Health Check**: It runs a "Smoke Test" to make sure the homepage still loads correctly and hasn't crashed.
+
+**What happens if there's a mistake?**
+If the robot finds an error, it will stop the update. **The live website will stay on the last working version**, so you don't have to worry about "breaking" the site for your audience! You'll see a red mark on GitHub if this happens.
+
 ## 🚀 Tech Stack
 
 - **Framework**: [React](https://reactjs.org/) with [TypeScript](https://www.typescriptlang.org/)

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import type { FC } from 'react';
 import './OptimizedImage.css';
 
@@ -12,18 +12,6 @@ const OptimizedImage: FC<OptimizedImageProps> = ({ src, alt, className = '' }) =
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
-
-  // Reset and check cache when src changes
-  useEffect(() => {
-    // If the image is already in the browser cache, it might be 'complete' immediately
-    if (imgRef.current?.complete) {
-      setIsLoaded(true);
-      setHasError(false);
-    } else {
-      setIsLoaded(false);
-      setHasError(false);
-    }
-  }, [src]);
 
   const handleLoad = () => {
     setIsLoaded(true);
