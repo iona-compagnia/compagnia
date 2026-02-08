@@ -6,25 +6,29 @@
  * to send email notifications.
  */
 
+const SPREADSHEET_ID = '16Cb4kNN7BM_i4ShvdhEJ32xTr8GIl37HjE9WzlQdAl4';
+
+function doGet(e) {
+  const action = e.parameter.action;
+  
+  if (action === 'getEvents') {
+    return getEvents();
+  }
+  
+  return ContentService.createTextOutput("Compagnia API is running");
+}
+
 function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
-    
-    // Add timestamp and form data
-    sheet.appendRow([
-      new Date(),
-      data.firstName,
-      data.lastName,
-      data.email,
-      data.message
-    ]);
+    const action = data.action;
 
-    // Send email notification
-    sendEmailNotification(data);
+    if (action === 'addEvent') {
+      return addEvent(data);
+    }
     
-    return ContentService.createTextOutput(JSON.stringify({ status: 'success' }))
-      .setMimeType(ContentService.MimeType.JSON);
+    // Default to contact form submission
+    return handleContactForm(data);
       
   } catch (error) {
     return ContentService.createTextOutput(JSON.stringify({ status: 'error', message: error.toString() }))
@@ -32,11 +36,63 @@ function doPost(e) {
   }
 }
 
-/**
- * Optional: Send an email notification when a new message arrives
- */
+function handleContactForm(data) {
+  const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheets()[0];
+  sheet.appendRow([
+    new Date(),
+    data.firstName,
+    data.lastName,
+    data.email,
+    data.message
+  ]);
+  sendEmailNotification(data);
+  return ContentService.createTextOutput(JSON.stringify({ status: 'success' }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function getEvents() {
+  const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName('Events');
+  if (!sheet) return createJsonResponse({ status: 'error', message: 'Events sheet not found' });
+  
+  const data = sheet.getDataRange().getValues();
+  const headers = data[0];
+  const rows = data.slice(1);
+  
+  const events = rows.map(row => {
+    let obj = {};
+    headers.forEach((header, i) => {
+      obj[header.toLowerCase()] = row[i];
+    });
+    return obj;
+  });
+  
+  return createJsonResponse(events);
+}
+
+function addEvent(data) {
+  const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName('Events');
+  if (!sheet) return createJsonResponse({ status: 'error', message: 'Events sheet not found' });
+  
+  sheet.appendRow([
+    Date.now().toString(), // Simple ID
+    data.date,
+    data.time,
+    data.title,
+    data.location,
+    data.description,
+    data.imageurl
+  ]);
+  
+  return createJsonResponse({ status: 'success' });
+}
+
+function createJsonResponse(data) {
+  return ContentService.createTextOutput(JSON.stringify(data))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
 function sendEmailNotification(data) {
-  const recipient = "iona@compagnia.org"; // Change this to the director's email
+  const recipient = "iona@compagnia.org"; 
   const subject = `New Contact Form Submission: ${data.firstName} ${data.lastName}`;
   const body = `You have a new message from your website:
 
