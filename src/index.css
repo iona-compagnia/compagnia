@@ -7,7 +7,7 @@
   --theme-dark: #1a1a1a;
 
   color: #000000;
-  background-color: #ffffff;
+  background-color: var(--theme-khaki);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
