@@ -6,7 +6,8 @@ This is where you can update your website. Everything you change here will be li
 
 - [ ] **Setup Your Contact Sheet**: Currently, messages go to a test sheet. To own your data:
     1. Create a new Google Sheet.
-    2. Share it with your developer (Erica) or follow the steps in `backend/` to link it.
+    2. Copy its URL.
+    3. Tell Gemini: **"Please update my contact sheet ID to [Paste Your URL Here] and push the change to Apps Script."**
 - [ ] **Add a New Concert**: Open `src/data/events.json` and add a new entry.
 - [ ] **Update a Bio**: Open `src/data/musicians.json` and change the text for a musician.
 - [ ] **Change Home Page Text**: Open `src/pages/Home.tsx` and look for the welcome message.

@@ -6,10 +6,16 @@
  * to send email notifications.
  */
 
+// 1. Create a Google Sheet
+// 2. Copy the ID from the URL (the long string of letters/numbers)
+// 3. Paste it here:
+const SPREADSHEET_ID = 'YOUR_SHEET_ID_HERE';
+
 function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    const sheet = ss.getSheets()[0];
     
     // Add timestamp and form data
     sheet.appendRow([
