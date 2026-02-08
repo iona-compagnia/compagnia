@@ -67,16 +67,71 @@
 
 @media (max-width: 768px) {
   .hero-container {
-    height: 80vh;
-    min-height: 500px;
+    height: auto;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 4rem 1.5rem;
+    justify-content: flex-start;
+    gap: 0;
   }
+
+  /* Make hero-content children direct children of hero-container for ordering */
   .hero-content {
-    padding: 2.5rem 1.5rem;
+    display: contents;
+    background: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    border: none;
   }
+
+  /* Order 1: Logo and Subtitle */
+  .hero-content > *:nth-child(1) { order: 1; } /* Logo FadeIn */
+  .hero-content > *:nth-child(2) { order: 2; } /* Subtitle FadeIn */
+  
+  /* Order 3: The Painting */
+  .hero-container .hero-image.optimized-image-container {
+    position: relative !important;
+    order: 3;
+    width: calc(100% + 3rem); /* Bleed to edges */
+    margin: 2rem -1.5rem;
+    height: auto;
+    aspect-ratio: 4/3;
+    z-index: 1;
+  }
+
+  .hero-container .hero-image .optimized-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Order 4: Countdown */
+  .hero-content > *:nth-child(3) { 
+    order: 4; 
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+  } 
+
+  .hero-content > *:nth-child(3) .countdown-container {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
   .hero-logo-wrapper .optimized-image-container {
-    width: 300px;
+    width: 280px;
   }
+  
   .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+  }
+
+  .hero-logo-wrapper {
+    margin-bottom: 1.5rem;
   }
 }
