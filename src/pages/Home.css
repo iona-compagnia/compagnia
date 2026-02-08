@@ -49,10 +49,16 @@
   justify-content: center;
   width: 100%;
   margin-bottom: 2rem;
+  background-color: transparent;
 }
 
 .hero-logo-wrapper .optimized-image-container {
   width: 450px;
+  background-color: transparent !important;
+}
+
+.hero-logo-wrapper .skeleton-loader {
+  display: none; /* Hide skeleton for the logo to avoid white box */
 }
 
 .hero-subtitle {
