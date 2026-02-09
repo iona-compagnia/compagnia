@@ -6,25 +6,18 @@ import './Contact.css';
 const Contact: FC = () => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     
-    const formData = new FormData(e.target as HTMLFormElement);
-    
-    // Simple Honeypot Check
-    if (formData.get('website')) {
-      // Simulate success for bots without sending data
-      setStatus('success');
-      return;
-    }
-
     setStatus('submitting');
     
     const data = {
-      firstName: (formData.get('firstName') as string).trim(),
-      lastName: (formData.get('lastName') as string).trim(),
-      email: (formData.get('email') as string).trim(),
-      message: (formData.get('message') as string).trim(),
+      firstName: (formData.get('firstName') || '').toString().trim(),
+      lastName: (formData.get('lastName') || '').toString().trim(),
+      email: (formData.get('email') || '').toString().trim(),
+      message: (formData.get('message') || '').toString().trim(),
     };
 
     try {
@@ -65,9 +58,6 @@ const Contact: FC = () => {
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit}>
-              {/* Honeypot field - hidden from users */}
-              <input type="text" name="website" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
-              
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="firstName">First Name *</label>
