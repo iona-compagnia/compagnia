@@ -9,7 +9,7 @@
 // 1. Create a Google Sheet
 // 2. Copy the ID from the URL (the long string of letters/numbers)
 // 3. Paste it here:
-const SPREADSHEET_ID = 'YOUR_SHEET_ID_HERE';
+const SPREADSHEET_ID = '1--IvOH67GvrIVHx6N2mPKBXjJYzYZSZbl8vpGkzAPJQ';
 
 function doPost(e) {
   try {
@@ -42,7 +42,7 @@ function doPost(e) {
  * Optional: Send an email notification when a new message arrives
  */
 function sendEmailNotification(data) {
-  const recipient = "iona@compagnia.org"; // Change this to the director's email
+  const recipients = ["iona@compagnia.org", "ezhong16@gmail.com"]; // Added ezhong16@gmail.com
   const subject = `New Contact Form Submission: ${data.firstName} ${data.lastName}`;
   const body = `You have a new message from your website:
 
@@ -50,5 +50,7 @@ Name: ${data.firstName} ${data.lastName}
 Email: ${data.email}
 Message: ${data.message}`;
                
-  MailApp.sendEmail(recipient, subject, body);
+  recipients.forEach(recipient => {
+    MailApp.sendEmail(recipient, subject, body);
+  });
 }
