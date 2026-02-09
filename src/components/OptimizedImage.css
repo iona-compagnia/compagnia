@@ -10,7 +10,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #dbd7cc 25%, var(--theme-khaki) 50%, #dbd7cc 75%);
+  background: linear-gradient(90deg, #d4c8af 25%, var(--theme-khaki) 50%, #d4c8af 75%);
   background-size: 200% 100%;
   animation: loading 1.5s infinite;
   z-index: 1;
