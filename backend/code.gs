@@ -42,7 +42,7 @@ function doPost(e) {
  * Optional: Send an email notification when a new message arrives
  */
 function sendEmailNotification(data) {
-  const recipients = ["iona@compagnia.org", "ezhong16@gmail.com"]; // Added ezhong16@gmail.com
+  const recipient = "iona@compagnia.org"; // Change this to the director's email
   const subject = `New Contact Form Submission: ${data.firstName} ${data.lastName}`;
   const body = `You have a new message from your website:
 
@@ -50,7 +50,5 @@ Name: ${data.firstName} ${data.lastName}
 Email: ${data.email}
 Message: ${data.message}`;
                
-  recipients.forEach(recipient => {
-    MailApp.sendEmail(recipient, subject, body);
-  });
+  MailApp.sendEmail(recipient, subject, body);
 }
