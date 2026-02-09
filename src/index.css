@@ -5,8 +5,13 @@
 
   --theme-khaki: #dfd3bd;
   --theme-dark: #1a1a1a;
+  --theme-text: #1a1a1a;
+  --theme-text-light: #555555;
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --transition-standard: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  color: #000000;
+  color: var(--theme-text);
   background-color: var(--theme-khaki);
 
   font-synthesis: none;
@@ -21,8 +26,9 @@
 
 a {
   font-weight: 400;
-  color: #000000;
+  color: var(--theme-text);
   text-decoration: none;
+  transition: var(--transition-standard);
 }
 
 body {
@@ -43,6 +49,11 @@ html {
   min-height: 100vh;
 }
 
+h1, h2, h3 {
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
 h1 {
   font-size: clamp(2.2rem, 8vw, 3.2rem);
   line-height: 1.1;
@@ -52,31 +63,47 @@ h1 {
   text-align: center;
   font-size: clamp(2.2rem, 8vw, 3.5rem);
   font-weight: 300;
-  margin: 3rem auto 4rem;
-  letter-spacing: 0.05em;
+  margin: 4rem auto 5rem;
+  letter-spacing: 0.08em;
   max-width: 90%;
+  text-transform: uppercase;
 }
 
-button {
-  border-radius: 4px;
+button, .button {
+  border-radius: 50px;
   border: 1px solid var(--theme-dark);
-  padding: 0.6em 1.5em;
-  font-size: 0.95em;
-  font-weight: 400;
-  letter-spacing: 0.05em;
+  padding: 0.8rem 2.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   font-family: inherit;
   background-color: var(--theme-dark);
   color: white;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: var(--transition-standard);
+  display: inline-block;
 }
 
-button:hover {
+button:hover, .button:hover {
   background-color: transparent;
   color: var(--theme-dark);
+  transform: translateY(-2px);
 }
+
+button:active, .button:active {
+  transform: scale(0.96);
+}
+
 button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--theme-dark);
+  outline-offset: 4px;
+}
+
+/* Specific focus style for links that don't need a heavy ring */
+.nav-item a:focus-visible,
+.social-icon-link:focus-visible {
+  outline-offset: 2px;
 }

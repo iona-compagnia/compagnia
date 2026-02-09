@@ -21,8 +21,8 @@ const Events: FC = () => {
         <h1 className="page-title">Events</h1>
       </FadeIn>
       <div className="events-container">
-        {(eventsData as Event[]).map((event) => (
-          <FadeIn key={event.id} delay={0.2}>
+        {(eventsData as Event[]).map((event, index) => (
+          <FadeIn key={event.id} delay={0.2 + index * 0.15}>
             <div className="event-item">
               <h2 className="event-name">{event.name}</h2>
               <p className="event-date">{event.date}</p>

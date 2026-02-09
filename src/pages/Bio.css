@@ -1,7 +1,7 @@
 .bio-page {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem 4rem;
 }
 
 .bio-container {
@@ -35,16 +35,17 @@
   line-height: 1.7;
   margin-bottom: 1.5rem;
   font-weight: 300;
-  color: #333;
+  color: var(--theme-text);
 }
 
 .back-link {
   display: inline-block;
   margin-top: 2rem;
   text-decoration: none;
-  color: #000;
+  color: var(--theme-dark);
   font-size: 1.1rem;
   font-weight: 400;
+  transition: var(--transition-standard);
 }
 
 .back-link:hover {

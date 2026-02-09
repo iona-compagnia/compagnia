@@ -40,29 +40,60 @@
 
 .nav-item a, .dropdown-trigger {
   text-decoration: none;
-  color: #000000;
-  font-weight: 400;
-  font-size: 1.4rem;
+  color: var(--theme-text);
+  font-weight: 300;
+  font-size: 1.25rem;
   letter-spacing: 0.02em;
-  transition: opacity 0.2s;
+  transition: var(--transition-standard);
   cursor: pointer;
 }
 
 .nav-item a:hover, .dropdown-trigger:hover {
-  opacity: 0.6;
+  opacity: 0.5;
+}
+
+.nav-item a.active {
+  opacity: 1;
+  font-weight: 500;
+}
+
+.nav-item a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--theme-dark);
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: var(--theme-khaki);
+  top: calc(100% + 1rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(223, 211, 189, 0.98); /* Matching theme-khaki with slight transparency */
+  backdrop-filter: blur(10px);
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.05);
-  padding: 12px 0;
+  box-shadow: var(--shadow-medium);
+  padding: 0.5rem 0;
   z-index: 10;
   border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 8px;
+}
+
+/* Bridge the gap so the dropdown doesn't close when moving mouse - Desktop Only */
+@media (min-width: 1025px) {
+  .dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -1.5rem;
+    left: 0;
+    width: 100%;
+    height: 1.5rem;
+    display: block;
+  }
 }
 
 .dropdown:hover .dropdown-content {
@@ -70,13 +101,24 @@
 }
 
 .dropdown-content a {
-  padding: 12px 16px;
+  padding: 10px 20px;
   display: block;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  position: relative;
+  text-align: center;
+}
+
+.dropdown-content a.active::after {
+  display: none;
+}
+
+.dropdown-content a.active {
+  font-weight: 500;
+  background-color: rgba(0,0,0,0.03);
 }
 
 .dropdown-content a:hover {
-  background-color: rgba(0,0,0,0.02);
+  background-color: rgba(0,0,0,0.05);
 }
 
 /* Hamburger Styles */
@@ -166,6 +208,7 @@
     right: 0;
     width: 100%;
     height: 100vh;
+    height: 100dvh;
     background-color: var(--theme-khaki);
     opacity: 0;
     visibility: hidden;
@@ -212,6 +255,10 @@
     width: 100%;
   }
 
+  .nav-item a.active::after {
+    display: none;
+  }
+
   .dropdown-content {
     position: static;
     display: block;
@@ -221,6 +268,8 @@
     text-align: center;
     padding: 0.5rem 0 0 0;
     width: 100%;
+    transform: none;
+    left: auto;
   }
 
   .dropdown-content a {

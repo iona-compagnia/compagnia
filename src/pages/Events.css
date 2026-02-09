@@ -1,7 +1,7 @@
 .events-page {
   max-width: 800px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem 4rem;
   text-align: center;
 }
 
@@ -13,56 +13,77 @@
 }
 
 .event-item {
-  border: 1px solid rgba(0,0,0,0.05);
-  padding: 3rem;
-  border-radius: 16px;
-  background-color: #faf9f7;
+  border: 1px solid rgba(0,0,0,0.03);
+  padding: 4rem;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition-standard);
+}
+
+.event-item:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: var(--shadow-medium);
 }
 
 .event-name {
-  font-size: 2.5rem;
-  font-weight: 400;
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
 }
 
 .event-date, .event-time, .event-location {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-  font-weight: 300;
+  font-size: 1.1rem;
+  margin: 0.4rem 0;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--theme-text-light);
 }
 
 .event-description {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   font-size: 1.3rem;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .musician-list {
   list-style: none;
   padding: 0;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  font-style: italic;
 }
 
 .musician-list li {
   font-weight: 300;
-  margin: 0.3rem 0;
+  margin: 0.4rem 0;
+  font-size: 1.1rem;
 }
 
 .tickets-button {
   display: inline-block;
   margin-top: 3rem;
-  padding: 1rem 2.5rem;
-  background-color: #000;
+  padding: 0.8rem 2.2rem;
+  background-color: var(--theme-dark);
   color: #fff;
   text-decoration: none;
+  border: 1px solid var(--theme-dark);
   border-radius: 50px;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.05em;
-  transition: background-color 0.2s, transform 0.2s;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: var(--transition-standard);
+  font-family: inherit;
 }
 
 .tickets-button:hover {
-  background-color: #333;
-  transform: scale(1.05);
+  background-color: transparent;
+  color: var(--theme-dark);
+  transform: translateY(-2px);
 }

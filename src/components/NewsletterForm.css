@@ -1,19 +1,22 @@
 .newsletter-trigger {
-  background: none;
-  border: 1px solid #000;
-  padding: 0.5rem 1rem;
+  background: var(--theme-dark);
+  border: 1px solid var(--theme-dark);
+  padding: 0.8rem 2.2rem;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: var(--transition-standard);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #000;
+  letter-spacing: 0.1em;
+  color: white;
+  border-radius: 50px;
 }
 
 .newsletter-trigger:hover {
-  background-color: #000;
-  color: var(--theme-khaki);
+  background-color: transparent;
+  color: var(--theme-dark);
+  transform: translateY(-2px);
 }
 
 .newsletter-form-container {
@@ -23,33 +26,42 @@
 
 .newsletter-fields {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
   align-items: center;
 }
 
 .newsletter-fields input {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
-  padding: 0.4rem 0.2rem;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 0.6rem 1rem;
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   outline: none;
-  transition: border-color 0.2s;
-  width: 120px;
+  transition: all 0.3s ease;
+  width: 140px;
 }
 
 .newsletter-fields input:focus {
-  border-bottom-color: #000;
+  border-color: #1a1a1a;
+  background: #fff;
 }
 
 .newsletter-submit {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
+  background: var(--theme-dark);
+  color: #fff;
+  border: 1px solid var(--theme-dark);
+  border-radius: 50px;
+  font-size: 1rem;
   cursor: pointer;
-  padding: 0 0.5rem;
+  padding: 0.5rem 1.2rem;
   line-height: 1;
+  transition: var(--transition-standard);
+}
+
+.newsletter-submit:hover {
+  background-color: transparent;
+  color: var(--theme-dark);
 }
 
 .newsletter-close {
@@ -57,8 +69,13 @@
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
-  color: rgba(0,0,0,0.4);
+  color: rgba(0, 0, 0, 0.4);
   padding: 0 0.2rem;
+  transition: color 0.2s ease;
+}
+
+.newsletter-close:hover {
+  color: #1a1a1a;
 }
 
 .newsletter-close:hover {
@@ -71,7 +88,7 @@
   color: #2e7d32;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .newsletter-fields {
     flex-direction: column;
     gap: 0.8rem;
@@ -84,15 +101,17 @@
   }
 
   .newsletter-submit {
-    border: 1px solid #000;
-    padding: 0.5rem;
+    border: 1px solid var(--theme-dark);
+    padding: 0.6rem;
     width: 100%;
   }
 
   .newsletter-close {
     position: absolute;
-    top: -10px;
-    right: -10px;
+    top: -20px;
+    right: 0;
+    padding: 10px;
+    font-size: 1.5rem;
   }
   
   .newsletter-form-container {

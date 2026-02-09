@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { FC, FormEvent } from 'react';
+import FadeIn from '../components/FadeIn';
 import './Contact.css';
 
 const Contact: FC = () => {
@@ -7,14 +8,23 @@ const Contact: FC = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setStatus('submitting');
     
     const formData = new FormData(e.target as HTMLFormElement);
+    
+    // Simple Honeypot Check
+    if (formData.get('website')) {
+      // Simulate success for bots without sending data
+      setStatus('success');
+      return;
+    }
+
+    setStatus('submitting');
+    
     const data = {
-      firstName: formData.get('firstName'),
-      lastName: formData.get('lastName'),
-      email: formData.get('email'),
-      message: formData.get('message'),
+      firstName: (formData.get('firstName') as string).trim(),
+      lastName: (formData.get('lastName') as string).trim(),
+      email: (formData.get('email') as string).trim(),
+      message: (formData.get('message') as string).trim(),
     };
 
     try {
@@ -40,42 +50,49 @@ const Contact: FC = () => {
 
   return (
     <div className="contact-page">
-      <h1 className="page-title">Contact</h1>
-      <div className="contact-form-container">
-        {status === 'success' ? (
-          <div className="success-notification">
-            <h2>Thank You!</h2>
-            <p>Your message has been sent successfully. We'll get back to you soon.</p>
-            <button onClick={() => setStatus('idle')} className="back-to-form-button">
-              Send Another Message
-            </button>
-          </div>
-        ) : (
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="firstName">First Name *</label>
-                <input type="text" id="firstName" name="firstName" required disabled={status === 'submitting'} />
+      <FadeIn>
+        <h1 className="page-title">Contact</h1>
+      </FadeIn>
+      <FadeIn delay={0.2}>
+        <div className="contact-form-container">
+          {status === 'success' ? (
+            <div className="success-notification">
+              <h2>Thank You!</h2>
+              <p>Your message has been sent successfully. We'll get back to you soon.</p>
+              <button onClick={() => setStatus('idle')} className="back-to-form-button">
+                Send Another Message
+              </button>
+            </div>
+          ) : (
+            <form className="contact-form" onSubmit={handleSubmit}>
+              {/* Honeypot field - hidden from users */}
+              <input type="text" name="website" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+              
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="firstName">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" required disabled={status === 'submitting'} />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="lastName">Last Name *</label>
+                  <input type="text" id="lastName" name="lastName" required disabled={status === 'submitting'} />
+                </div>
               </div>
               <div className="form-group">
-                <label htmlFor="lastName">Last Name *</label>
-                <input type="text" id="lastName" name="lastName" required disabled={status === 'submitting'} />
+                <label htmlFor="email">Email *</label>
+                <input type="email" id="email" name="email" required disabled={status === 'submitting'} />
               </div>
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email *</label>
-              <input type="email" id="email" name="email" required disabled={status === 'submitting'} />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message *</label>
-              <textarea id="message" name="message" rows={6} required disabled={status === 'submitting'}></textarea>
-            </div>
-            <button type="submit" className="submit-button" disabled={status === 'submitting'}>
-              {status === 'submitting' ? 'Sending...' : 'Submit'}
-            </button>
-          </form>
-        )}
-      </div>
+              <div className="form-group">
+                <label htmlFor="message">Message *</label>
+                <textarea id="message" name="message" rows={6} required disabled={status === 'submitting'}></textarea>
+              </div>
+              <button type="submit" className="submit-button" disabled={status === 'submitting'}>
+                {status === 'submitting' ? 'Sending...' : 'Submit'}
+              </button>
+            </form>
+          )}
+        </div>
+      </FadeIn>
     </div>
   );
 };

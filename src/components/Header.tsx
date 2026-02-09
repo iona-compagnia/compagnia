@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import type { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Header.css';
 
 const Header: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
+
+  // Check if About or any sub-page (like Director) is active
+  const isAboutActive = location.pathname === '/about' || location.pathname === '/director';
 
   return (
     <header className="header">
@@ -22,7 +26,7 @@ const Header: FC = () => {
           </Link>
         </div>
 
-        <button className={`hamburger ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu} aria-label="Menu">
+        <button type="button" className={`hamburger ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu} aria-label="Menu">
           <span className="hamburger-box">
             <span className="hamburger-inner"></span>
           </span>
@@ -30,16 +34,22 @@ const Header: FC = () => {
 
         <nav className={`nav ${isMenuOpen ? 'mobile-open' : ''}`}>
           <ul className="nav-list">
-            <li className="nav-item"><Link to="/" onClick={closeMenu}>Home</Link></li>
+            <li className="nav-item"><NavLink to="/" onClick={closeMenu}>Home</NavLink></li>
             <li className="nav-item dropdown">
-              <Link to="/about" className="dropdown-trigger" onClick={closeMenu}>About</Link>
+              <NavLink 
+                to="/about" 
+                className={`dropdown-trigger ${isAboutActive ? 'active' : ''}`} 
+                onClick={closeMenu}
+              >
+                About
+              </NavLink>
               <div className="dropdown-content">
-                <Link to="/director" onClick={closeMenu}>Director</Link>
+                <NavLink to="/director" onClick={closeMenu}>Director</NavLink>
               </div>
             </li>
-            <li className="nav-item"><Link to="/events" onClick={closeMenu}>Events</Link></li>
-            <li className="nav-item"><Link to="/musicians" onClick={closeMenu}>Musicians</Link></li>
-            <li className="nav-item"><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
+            <li className="nav-item"><NavLink to="/events" onClick={closeMenu}>Events</NavLink></li>
+            <li className="nav-item"><NavLink to="/musicians" onClick={closeMenu}>Musicians</NavLink></li>
+            <li className="nav-item"><NavLink to="/contact" onClick={closeMenu}>Contact</NavLink></li>
             <li className="nav-item"><a href="https://fundraising.fracturedatlas.org/compagnia" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Donate</a></li>
           </ul>
         </nav>
