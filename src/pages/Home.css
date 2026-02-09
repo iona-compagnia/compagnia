@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f2f0ec;
+  background-color: var(--theme-khaki);
   overflow: hidden;
 }
 
