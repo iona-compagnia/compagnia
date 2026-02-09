@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import NewsletterForm from './NewsletterForm';
 import './Footer.css';
 
 const InstagramIcon = () => (
@@ -19,6 +20,11 @@ const Footer: FC = () => {
             @compagnia.nyc
           </a>
         </div>
+        
+        <div className="footer-newsletter">
+          <NewsletterForm />
+        </div>
+
         <div className="contact-info">
           <p>Contact: <a href="mailto:iona@compagnia.org">iona@compagnia.org</a></p>
           <p><a href="https://fundraising.fracturedatlas.org/compagnia" target="_blank" rel="noopener noreferrer">Donate</a></p>
