@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { useLocation } from 'react-router-dom';
 import NewsletterForm from './NewsletterForm';
 import './Footer.css';
 
@@ -9,6 +10,8 @@ const InstagramIcon = () => (
 );
 
 const Footer: FC = () => {
+  const location = useLocation();
+
   return (
     <footer className="footer">
       <div className="footer-inner">
@@ -22,7 +25,7 @@ const Footer: FC = () => {
         </div>
         
         <div className="footer-newsletter">
-          <NewsletterForm />
+          <NewsletterForm key={location.pathname} />
         </div>
 
         <div className="contact-info">

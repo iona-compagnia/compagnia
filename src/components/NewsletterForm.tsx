@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import type { FC, FormEvent } from 'react';
-import { useLocation } from 'react-router-dom';
 import './NewsletterForm.css';
 
 const NewsletterForm: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
-  const location = useLocation();
 
   // Close form on Escape key
   useEffect(() => {
@@ -16,12 +14,6 @@ const NewsletterForm: FC = () => {
     if (isOpen) window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
   }, [isOpen]);
-
-  // Automatically close form when navigating to a new page
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (isOpen) setIsOpen(false);
-  }, [location.pathname, isOpen]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
