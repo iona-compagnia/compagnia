@@ -14,3 +14,11 @@ This project is for the **Compagnia** chamber music collective. The primary user
 - **Clean URLs**: Uses `BrowserRouter` with a `404.html` redirect hack.
 - **Data**: Events and Musicians are managed via JSON files in `src/data/`.
 - **Backend**: Google Apps Script handles the contact form (linked to Google Sheets).
+
+## 🛠️ Coding Values & Principles
+
+- **Consistency is King**: Always ensure styles, layouts, and behaviors are uniform across the entire site.
+- **Best Practices First**: Adhere strictly to modern web development standards (accessibility, semantic HTML, mobile-first design).
+- **Proactive Warnings**: If a requested change or feature deviates from best practices or project consistency, **alert the user** before implementing it.
+- **Tactile Feedback**: Ensure interactive elements provide clear feedback (e.g., active states for buttons) to support touch-screen users on iPad.
+- **Robustness**: Build for longevity with clean data handling, spam prevention, and graceful fallbacks for older browsers.
