@@ -34,6 +34,6 @@
       "onAutoForward": "openBrowser"
     }
   },
-  "postCreateCommand": "npm install && gemini config set experimental.ide_extension_check false && echo 'Ready!'",
+  "postCreateCommand": "npm install && echo 'Ready!'",
   "waitFor": "postCreateCommand"
 }
