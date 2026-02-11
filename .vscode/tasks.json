@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🎻 Update Musicians & Bios",
+      "type": "shell",
+      "command": "code src/data/musicians.json",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "never"
+      }
+    },
+    {
+      "label": "📅 Add or Change Concert Events",
+      "type": "shell",
+      "command": "code src/data/events.json",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "never"
+      }
+    }
+  ]
+}
