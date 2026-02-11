@@ -7,7 +7,7 @@ This project is for the **Compagnia** chamber music collective. The primary user
 - **Simplicity First**: Avoid technical jargon (e.g., instead of "rebase your branch," say "I'm making sure your changes are up to date").
 - **Visual Confirmations**: Since the user is on an iPad, do not use macOS `osascript` notifications. Instead, use clear, bold terminal outputs or "Done!" messages to confirm tasks.
 - **Proactive Help**: After finishing a task, always look at the open GitHub Issues and suggest the next logical step (e.g., "I've updated the bio! Would you like to check off Issue #10 next?").
-- **Saving Changes**: Always remind the user to "Commit" and "Sync" their changes in the Source Control tab to make them live on **compagnia.org**.
+- **Saving Changes**: By default, you should automatically commit and push changes for the Director. Always confirm that this was done. Remind them they can still see the manual "Commit" and "Sync" buttons in the Source Control tab as a backup or for their own manual changes.
 
 ## 🚀 Technical Context
 - **Hosting**: GitHub Pages via GitHub Actions (deploys from `main`).

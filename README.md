@@ -22,6 +22,7 @@ The easiest way to edit this project is using **GitHub Codespaces**. This gives 
 - [ ] **Using Shortcuts**: Press `Cmd + Shift + P` and search for **"Update Musicians"** to jump straight to the data.
 
 ### 🚀 How to Save Your Changes
+The AI is set to automatically save and push your changes. If you ever need to save a change manually:
 1. Click the **Source Control** icon on the far left (looks like a branch with a circle).
 2. Type a short note (e.g., "Updated bios") and click **Commit**.
 3. Click **Sync Changes** to make them live on **compagnia.org**.
