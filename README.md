@@ -11,16 +11,14 @@ A modern, elegant web application for **Compagnia**, a chamber music collective 
 The easiest way to edit this project is using **GitHub Codespaces**. This gives you a full computer in your browser.
 
 1.  **Open the Environment**: Click the green **"Code"** button at the top of this page, select **Codespaces**, and click **"Create codespace on main"**.
-2.  **Wait for Setup**: A new tab will open. **Wait about 1 minute** while the system automatically installs everything and starts the preview.
-3.  **View the Website**: A pop-up will appear in the bottom right. Click **"Open in Browser"** to see your live preview.
+2.  **Wait for Setup**: A new tab will open. **Wait about 1 minute** while the system automatically installs everything.
+3.  **Start Chatting**: Look for the **Sparkle Icon (✨)** on the far left edge of your screen. Click it to open your AI Assistant. You can ask it to "Update a musician bio" or "Add a new concert" in plain English.
+4.  **View the Website**: A pop-up will appear in the bottom right. Click **"Open in Browser"** to see your live preview.
 
 ### ⚡️ Quick Tasks
-- [ ] **Setup Your Contact Sheet**: Currently, messages go to a test sheet. To own your data:
-    1. Create a new Google Sheet and copy its URL.
-    2. Tell the AI (Gemini): **"Please update my contact sheet ID to [Paste Your URL Here] and push the change to Apps Script."**
-- [ ] **Add a New Concert**: Open `src/data/events.json` and add a new entry.
-- [ ] **Update a Bio**: Open `src/data/musicians.json` and change the text for a musician.
-- [ ] **Using the AI Assistant**: Press `Cmd + Shift + P` (iPad/Mac), type **"Gemini"**, and select **"Focus on Gemini View"** to chat with the AI for help with any changes.
+- [ ] **Setup Your Contact Sheet**: Tell the AI (Sparkle): **"Please update my contact sheet ID to [Paste Your Google Sheet URL Here]."**
+- [ ] **Add a New Concert**: Ask the AI: **"I want to add a new concert for March 15th."**
+- [ ] **Using Shortcuts**: Press `Cmd + Shift + P` and search for **"Update Musicians"** to jump straight to the data.
 
 ### 🚀 How to Save Your Changes
 1. Click the **Source Control** icon on the far left (looks like a branch with a circle).
