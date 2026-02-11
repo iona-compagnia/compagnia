@@ -41,6 +41,6 @@
       "onAutoForward": "openBrowser"
     }
   },
-  "postCreateCommand": "npm install && sudo npm install -g @google/gemini-cli && echo 'Ready!'",
+  "postCreateCommand": "npm install && sudo npm install -g @google/gemini-cli && echo 'source ${containerWorkspaceFolder}/.devcontainer/welcome.sh' >> ~/.bashrc && echo 'Ready!'",
   "waitFor": "postCreateCommand"
 }
