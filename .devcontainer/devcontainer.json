@@ -32,6 +32,6 @@
       "onAutoForward": "openBrowser"
     }
   },
-  "postCreateCommand": "npm install && echo 'Ready!'",
+  "postCreateCommand": "npm install && npm install -g @google/gemini-cli && echo 'Ready!'",
   "waitFor": "postCreateCommand"
 }
