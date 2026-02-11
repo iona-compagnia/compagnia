@@ -10,7 +10,8 @@
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
         "dsznajder.es7-react-js-snippets",
-        "google.gemini-cli-companion"
+        "google.gemini-cli-companion",
+        "google.gemini-vsc"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
