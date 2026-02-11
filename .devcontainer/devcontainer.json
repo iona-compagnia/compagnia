@@ -33,6 +33,6 @@
       "onAutoForward": "openBrowser"
     }
   },
-  "postCreateCommand": "npm install && echo 'Ready!'",
+  "postCreateCommand": "npm install && export PATH=$PATH:$(npm config get prefix)/bin && echo 'Ready!'",
   "waitFor": "postCreateCommand"
 }
