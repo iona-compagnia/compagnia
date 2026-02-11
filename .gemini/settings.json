@@ -3,9 +3,13 @@
     "hasSeenNudge": true
   },
   "general": {
-    "previewFeatures": true
+    "previewFeatures": true,
+    "enableAutoUpdate": false
   },
   "model": {
     "name": "auto"
+  },
+  "telemetry": {
+    "enabled": false
   }
 }
