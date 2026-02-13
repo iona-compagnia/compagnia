@@ -41,7 +41,16 @@ const Countdown: FC = () => {
 
   return (
     <div className="countdown-container">
-      <h3 className="countdown-title">Next Concert: Compagnia V</h3>
+      <h3 className="countdown-title">
+        Next Concert: <a 
+          href="https://www.eventbrite.com/e/compagnia-v-tickets-1981601448275?aff=oddtdtcreator" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="countdown-link"
+        >
+          Compagnia V
+        </a>
+      </h3>
       <div className="countdown-clock">
         <div className="countdown-item">
           <span className="countdown-value">{timeLeft.days}</span>
