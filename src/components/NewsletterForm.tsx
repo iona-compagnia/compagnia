@@ -2,6 +2,14 @@ import { useState, useEffect } from 'react';
 import type { FC, FormEvent } from 'react';
 import './NewsletterForm.css';
 
+declare global {
+  interface Window {
+    umami?: {
+      track: (name: string, data?: Record<string, unknown>) => void;
+    };
+  }
+}
+
 const NewsletterForm: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -23,6 +31,11 @@ const NewsletterForm: FC = () => {
     setStatus('submitting');
     console.info('Newsletter signup attempt:', formData.get('email'));
     
+    // Track attempt in Umami
+    if (window.umami) {
+      window.umami.track('newsletter-signup-attempt', { email: formData.get('email') });
+    }
+
     // Create hidden iframe for submission
     const iframeName = 'hidden_iframe_newsletter';
     let iframe = document.getElementById(iframeName) as HTMLIFrameElement;
@@ -64,6 +77,11 @@ const NewsletterForm: FC = () => {
       // Since we can't easily detect iframe load success cross-origin, 
       // we'll assume success after a short delay
       setTimeout(() => {
+        // Track successful signup in Umami
+        if (window.umami) {
+          window.umami.track('newsletter-signup-success', { email: formData.get('email') });
+        }
+
         setStatus('success');
         form.reset();
         document.body.removeChild(tempForm);
@@ -76,6 +94,15 @@ const NewsletterForm: FC = () => {
       }, 1000);
     } catch (error) {
       console.error('Newsletter error:', error);
+      
+      // Track error in Umami
+      if (window.umami) {
+        window.umami.track('newsletter-signup-error', { 
+          error: error instanceof Error ? error.message : 'Unknown error',
+          email: formData.get('email')
+        });
+      }
+
       setStatus('error');
       if (tempForm.parentNode) document.body.removeChild(tempForm);
     }

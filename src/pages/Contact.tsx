@@ -3,6 +3,14 @@ import type { FC, FormEvent } from 'react';
 import FadeIn from '../components/FadeIn';
 import './Contact.css';
 
+declare global {
+  interface Window {
+    umami?: {
+      track: (name: string, data?: Record<string, unknown>) => void;
+    };
+  }
+}
+
 const Contact: FC = () => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
@@ -14,6 +22,11 @@ const Contact: FC = () => {
     setStatus('submitting');
     console.info('Contact form submission attempt:', formData.get('email'));
     
+    // Track attempt in Umami
+    if (window.umami) {
+      window.umami.track('contact-form-attempt', { email: formData.get('email') });
+    }
+
     // Create hidden iframe for submission
     const iframeName = 'hidden_iframe_contact';
     let iframe = document.getElementById(iframeName) as HTMLIFrameElement;
@@ -55,6 +68,11 @@ const Contact: FC = () => {
       // Since we can't easily detect iframe load success cross-origin, 
       // we'll assume success after a short delay
       setTimeout(() => {
+        // Track successful contact form submission in Umami
+        if (window.umami) {
+          window.umami.track('contact-form-success', { email: formData.get('email') });
+        }
+
         setStatus('success');
         form.reset();
         document.body.removeChild(tempForm);
@@ -63,6 +81,15 @@ const Contact: FC = () => {
       }, 1000);
     } catch (error) {
       console.error('Submission error:', error);
+
+      // Track error in Umami
+      if (window.umami) {
+        window.umami.track('contact-form-error', { 
+          error: error instanceof Error ? error.message : 'Unknown error',
+          email: formData.get('email')
+        });
+      }
+
       setStatus('error');
       if (tempForm.parentNode) document.body.removeChild(tempForm);
     }

@@ -38,6 +38,27 @@ To ensure the website doesn't break, I've added an **Automated Safety Gate**. Ev
 **What happens if there's a mistake?**
 If the robot finds an error, it will stop the update. **The live website will stay on the last working version**, so you don't have to worry about "breaking" the site for your audience! You'll see a red mark on GitHub if this happens.
 
+## 🛠️ Forms & Newsletter
+
+The Contact and Newsletter forms on this site use a **"Stealth Google Form"** setup for maximum reliability. 
+
+### How it works:
+*   Data is sent directly to a Google Form (`/formResponse`) in the background via a hidden iframe.
+*   **Why?** This avoids the need for Google Apps Script "Deployment IDs" which often break when updated. This system is "set it and forget it."
+*   **Destination**: All submissions go to the **"General Inquiry Form"** in Iona's Google Drive.
+
+### Maintenance:
+If you ever need to change the destination:
+1. Create a new Google Form.
+2. Get the "entry IDs" for each field (Name, Email, etc.) from the form's HTML.
+3. Update the IDs in `src/components/NewsletterForm.tsx` and `src/pages/Contact.tsx`.
+
+### Email Notifications:
+To get an email whenever someone signs up:
+* Open the Google Form > **Responses** tab > Click **⋮** > Select **"Get email notifications for new responses"**.
+
+---
+
 ## 🚀 Tech Stack
 
 - **Framework**: [React](https://reactjs.org/) with [TypeScript](https://www.typescriptlang.org/)

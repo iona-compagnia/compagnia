@@ -3,6 +3,14 @@ import type { FC } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Header.css';
 
+declare global {
+  interface Window {
+    umami?: {
+      track: (name: string, data?: Record<string, unknown>) => void;
+    };
+  }
+}
+
 const Header: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -50,7 +58,21 @@ const Header: FC = () => {
             <li className="nav-item"><NavLink to="/events" onClick={closeMenu}>Events</NavLink></li>
             <li className="nav-item"><NavLink to="/musicians" onClick={closeMenu}>Musicians</NavLink></li>
             <li className="nav-item"><NavLink to="/contact" onClick={closeMenu}>Contact</NavLink></li>
-            <li className="nav-item"><a href="https://fundraising.fracturedatlas.org/compagnia" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Donate</a></li>
+            <li className="nav-item">
+              <a 
+                href="https://fundraising.fracturedatlas.org/compagnia" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                onClick={() => {
+                  if (window.umami) {
+                    window.umami.track('donate-button-click', { location: 'header' });
+                  }
+                  closeMenu();
+                }}
+              >
+                Donate
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
