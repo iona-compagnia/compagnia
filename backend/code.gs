@@ -13,7 +13,20 @@ const SPREADSHEET_ID = '1--IvOH67GvrIVHx6N2mPKBXjJYzYZSZbl8vpGkzAPJQ';
 
 function doPost(e) {
   try {
-    const data = JSON.parse(e.postData.contents);
+    let data;
+    
+    // Check if the data is JSON or Form parameters
+    if (e.postData.type === 'application/json') {
+      data = JSON.parse(e.postData.contents);
+    } else {
+      data = {
+        firstName: e.parameter.firstName,
+        lastName: e.parameter.lastName,
+        email: e.parameter.email,
+        message: e.parameter.message
+      };
+    }
+    
     const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
     const sheet = ss.getSheets()[0];
     
