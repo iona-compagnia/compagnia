@@ -3,6 +3,14 @@ import type { FC, FormEvent } from 'react';
 import FadeIn from '../components/FadeIn';
 import './Contact.css';
 
+declare global {
+  interface Window {
+    umami?: {
+      track: (name: string, data?: Record<string, unknown>) => void;
+    };
+  }
+}
+
 const Contact: FC = () => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
@@ -55,6 +63,11 @@ const Contact: FC = () => {
       // Since we can't easily detect iframe load success cross-origin, 
       // we'll assume success after a short delay
       setTimeout(() => {
+        // Track successful contact form submission in Umami
+        if (window.umami) {
+          window.umami.track('contact-form-success', { email: formData.get('email') });
+        }
+
         setStatus('success');
         form.reset();
         document.body.removeChild(tempForm);

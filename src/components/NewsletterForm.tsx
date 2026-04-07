@@ -2,6 +2,14 @@ import { useState, useEffect } from 'react';
 import type { FC, FormEvent } from 'react';
 import './NewsletterForm.css';
 
+declare global {
+  interface Window {
+    umami?: {
+      track: (name: string, data?: Record<string, unknown>) => void;
+    };
+  }
+}
+
 const NewsletterForm: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -64,6 +72,11 @@ const NewsletterForm: FC = () => {
       // Since we can't easily detect iframe load success cross-origin, 
       // we'll assume success after a short delay
       setTimeout(() => {
+        // Track successful signup in Umami
+        if (window.umami) {
+          window.umami.track('newsletter-signup-success', { email: formData.get('email') });
+        }
+
         setStatus('success');
         form.reset();
         document.body.removeChild(tempForm);
