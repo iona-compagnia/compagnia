@@ -22,6 +22,11 @@ const Contact: FC = () => {
     setStatus('submitting');
     console.info('Contact form submission attempt:', formData.get('email'));
     
+    // Track attempt in Umami
+    if (window.umami) {
+      window.umami.track('contact-form-attempt', { email: formData.get('email') });
+    }
+
     // Create hidden iframe for submission
     const iframeName = 'hidden_iframe_contact';
     let iframe = document.getElementById(iframeName) as HTMLIFrameElement;

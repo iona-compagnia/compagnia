@@ -31,6 +31,11 @@ const NewsletterForm: FC = () => {
     setStatus('submitting');
     console.info('Newsletter signup attempt:', formData.get('email'));
     
+    // Track attempt in Umami
+    if (window.umami) {
+      window.umami.track('newsletter-signup-attempt', { email: formData.get('email') });
+    }
+
     // Create hidden iframe for submission
     const iframeName = 'hidden_iframe_newsletter';
     let iframe = document.getElementById(iframeName) as HTMLIFrameElement;
