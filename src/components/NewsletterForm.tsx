@@ -29,14 +29,20 @@ const NewsletterForm: FC = () => {
       message: 'Newsletter Signup',
     };
 
+    const params = new URLSearchParams();
+    params.append('firstName', data.firstName);
+    params.append('lastName', data.lastName);
+    params.append('email', data.email);
+    params.append('message', data.message);
+
     try {
       await fetch('https://script.google.com/macros/s/AKfycbzQeDdTD-XsBtrcZ52HaPm2T7r4XJTsaGPhZTbWVhsQSzqeV8CcjBRCmV6l5_nCZh2Q/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(data),
+        body: params.toString(),
       });
 
       setStatus('success');
