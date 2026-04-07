@@ -4,7 +4,7 @@ import './NewsletterForm.css';
 
 const NewsletterForm: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   // Close form on Escape key
   useEffect(() => {
@@ -21,6 +21,7 @@ const NewsletterForm: FC = () => {
     const formData = new FormData(form);
     
     setStatus('submitting');
+    console.info('Newsletter signup attempt:', formData.get('email'));
     
     const data = {
       firstName: (formData.get('firstName') || '').toString().trim(),
@@ -30,14 +31,17 @@ const NewsletterForm: FC = () => {
     };
 
     try {
-      await fetch('https://script.google.com/macros/s/AKfycbzQeDdTD-XsBtrcZ52HaPm2T7r4XJTsaGPhZTbWVhsQSzqeV8CcjBRCmV6l5_nCZh2Q/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzQeDdTD-XsBtrcZ52HaPm2T7r4XJTsaGPhZTbWVhsQSzqeV8CcjBRCmV6l5_nCZh2Q/exec', {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'text/plain;charset=utf-8',
         },
         body: JSON.stringify(data),
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       setStatus('success');
       form.reset();
@@ -49,8 +53,7 @@ const NewsletterForm: FC = () => {
       }, 3000);
     } catch (error) {
       console.error('Newsletter error:', error);
-      alert('There was an error. Please try again later.');
-      setStatus('idle');
+      setStatus('error');
     }
   };
 
@@ -98,6 +101,11 @@ const NewsletterForm: FC = () => {
             </button>
             <button type="button" className="newsletter-close" onClick={() => setIsOpen(false)} aria-label="Close form">×</button>
           </div>
+          {status === 'error' && (
+            <p className="newsletter-error-text" role="alert">
+              Something went wrong. Please try again later.
+            </p>
+          )}
         </form>
       )}
     </div>

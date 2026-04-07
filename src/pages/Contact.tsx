@@ -4,7 +4,7 @@ import FadeIn from '../components/FadeIn';
 import './Contact.css';
 
 const Contact: FC = () => {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -12,6 +12,7 @@ const Contact: FC = () => {
     const formData = new FormData(form);
     
     setStatus('submitting');
+    console.info('Contact form submission attempt:', formData.get('email'));
     
     const data = {
       firstName: (formData.get('firstName') || '').toString().trim(),
@@ -21,23 +22,25 @@ const Contact: FC = () => {
     };
 
     try {
-      await fetch('https://script.google.com/macros/s/AKfycbzQeDdTD-XsBtrcZ52HaPm2T7r4XJTsaGPhZTbWVhsQSzqeV8CcjBRCmV6l5_nCZh2Q/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzQeDdTD-XsBtrcZ52HaPm2T7r4XJTsaGPhZTbWVhsQSzqeV8CcjBRCmV6l5_nCZh2Q/exec', {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'text/plain;charset=utf-8',
         },
         body: JSON.stringify(data),
       });
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       setStatus('success');
-      (e.target as HTMLFormElement).reset();
+      form.reset();
       // Reset form status after 10 seconds
       setTimeout(() => setStatus('idle'), 10000);
     } catch (error) {
       console.error('Submission error:', error);
-      alert('There was an error sending your message. Please try again later.');
-      setStatus('idle');
+      setStatus('error');
     }
   };
 
@@ -76,6 +79,13 @@ const Contact: FC = () => {
                 <label htmlFor="message">Message *</label>
                 <textarea id="message" name="message" rows={6} required disabled={status === 'submitting'}></textarea>
               </div>
+              
+              {status === 'error' && (
+                <div className="error-message" role="alert">
+                  <p>There was an error sending your message. Please try again later or email us directly at iona@compagnia.org.</p>
+                </div>
+              )}
+
               <button type="submit" className="submit-button" disabled={status === 'submitting'}>
                 {status === 'submitting' ? 'Sending...' : 'Submit'}
               </button>
