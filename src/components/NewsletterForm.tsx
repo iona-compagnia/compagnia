@@ -94,6 +94,15 @@ const NewsletterForm: FC = () => {
       }, 1000);
     } catch (error) {
       console.error('Newsletter error:', error);
+      
+      // Track error in Umami
+      if (window.umami) {
+        window.umami.track('newsletter-signup-error', { 
+          error: error instanceof Error ? error.message : 'Unknown error',
+          email: formData.get('email')
+        });
+      }
+
       setStatus('error');
       if (tempForm.parentNode) document.body.removeChild(tempForm);
     }
