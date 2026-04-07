@@ -23,37 +23,61 @@ const NewsletterForm: FC = () => {
     setStatus('submitting');
     console.info('Newsletter signup attempt:', formData.get('email'));
     
-    const data = {
-      firstName: (formData.get('firstName') || '').toString().trim(),
-      lastName: (formData.get('lastName') || '').toString().trim(),
-      email: (formData.get('email') || '').toString().trim(),
-      message: 'Newsletter Signup',
+    // Create hidden iframe for submission
+    const iframeName = 'hidden_iframe_newsletter';
+    let iframe = document.getElementById(iframeName) as HTMLIFrameElement;
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe.id = iframeName;
+      iframe.name = iframeName;
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+    }
+
+    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSeCL9U1PRgsHrgeEzIakfX6vkx9OO5wNcg16SSdwFv4dTrfCg/formResponse';
+    
+    // Create a temporary form to submit to the iframe
+    const tempForm = document.createElement('form');
+    tempForm.action = GOOGLE_FORM_ACTION;
+    tempForm.method = 'POST';
+    tempForm.target = iframeName;
+
+    const fields = {
+      'entry.730403727': (formData.get('firstName') || '').toString().trim(),
+      'entry.1816276036': (formData.get('lastName') || '').toString().trim(),
+      'entry.365665735': (formData.get('email') || '').toString().trim(),
+      'entry.1236900277': 'Newsletter Signup',
     };
 
+    Object.entries(fields).forEach(([name, value]) => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = name;
+      input.value = value;
+      tempForm.appendChild(input);
+    });
+
+    document.body.appendChild(tempForm);
+    
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbzQeDdTD-XsBtrcZ52HaPm2T7r4XJTsaGPhZTbWVhsQSzqeV8CcjBRCmV6l5_nCZh2Q/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      setStatus('success');
-      form.reset();
-      
-      // Close form after success
+      tempForm.submit();
+      // Since we can't easily detect iframe load success cross-origin, 
+      // we'll assume success after a short delay
       setTimeout(() => {
-        setIsOpen(false);
-        setStatus('idle');
-      }, 3000);
+        setStatus('success');
+        form.reset();
+        document.body.removeChild(tempForm);
+        
+        // Close form after success
+        setTimeout(() => {
+          setIsOpen(false);
+          setStatus('idle');
+        }, 3000);
+      }, 1000);
     } catch (error) {
       console.error('Newsletter error:', error);
       setStatus('error');
+      if (tempForm.parentNode) document.body.removeChild(tempForm);
     }
   };
 
