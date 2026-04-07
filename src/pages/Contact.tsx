@@ -4,7 +4,7 @@ import FadeIn from '../components/FadeIn';
 import './Contact.css';
 
 const Contact: FC = () => {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -12,38 +12,59 @@ const Contact: FC = () => {
     const formData = new FormData(form);
     
     setStatus('submitting');
+    console.info('Contact form submission attempt:', formData.get('email'));
     
-    const data = {
-      firstName: (formData.get('firstName') || '').toString().trim(),
-      lastName: (formData.get('lastName') || '').toString().trim(),
-      email: (formData.get('email') || '').toString().trim(),
-      message: (formData.get('message') || '').toString().trim(),
+    // Create hidden iframe for submission
+    const iframeName = 'hidden_iframe_contact';
+    let iframe = document.getElementById(iframeName) as HTMLIFrameElement;
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe.id = iframeName;
+      iframe.name = iframeName;
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+    }
+
+    const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSeCL9U1PRgsHrgeEzIakfX6vkx9OO5wNcg16SSdwFv4dTrfCg/formResponse';
+    
+    // Create a temporary form to submit to the iframe
+    const tempForm = document.createElement('form');
+    tempForm.action = GOOGLE_FORM_ACTION;
+    tempForm.method = 'POST';
+    tempForm.target = iframeName;
+
+    const fields = {
+      'entry.730403727': (formData.get('firstName') || '').toString().trim(),
+      'entry.1816276036': (formData.get('lastName') || '').toString().trim(),
+      'entry.365665735': (formData.get('email') || '').toString().trim(),
+      'entry.1236900277': (formData.get('message') || '').toString().trim(),
     };
 
-    const params = new URLSearchParams();
-    params.append('firstName', data.firstName);
-    params.append('lastName', data.lastName);
-    params.append('email', data.email);
-    params.append('message', data.message);
+    Object.entries(fields).forEach(([name, value]) => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = name;
+      input.value = value;
+      tempForm.appendChild(input);
+    });
 
+    document.body.appendChild(tempForm);
+    
     try {
-      await fetch('https://script.google.com/macros/s/AKfycbzQeDdTD-XsBtrcZ52HaPm2T7r4XJTsaGPhZTbWVhsQSzqeV8CcjBRCmV6l5_nCZh2Q/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: params.toString(),
-      });
-
-      setStatus('success');
-      (e.target as HTMLFormElement).reset();
-      // Reset form status after 10 seconds
-      setTimeout(() => setStatus('idle'), 10000);
+      tempForm.submit();
+      // Since we can't easily detect iframe load success cross-origin, 
+      // we'll assume success after a short delay
+      setTimeout(() => {
+        setStatus('success');
+        form.reset();
+        document.body.removeChild(tempForm);
+        // Reset form status after 10 seconds
+        setTimeout(() => setStatus('idle'), 10000);
+      }, 1000);
     } catch (error) {
       console.error('Submission error:', error);
-      alert('There was an error sending your message. Please try again later.');
-      setStatus('idle');
+      setStatus('error');
+      if (tempForm.parentNode) document.body.removeChild(tempForm);
     }
   };
 
@@ -82,6 +103,13 @@ const Contact: FC = () => {
                 <label htmlFor="message">Message *</label>
                 <textarea id="message" name="message" rows={6} required disabled={status === 'submitting'}></textarea>
               </div>
+              
+              {status === 'error' && (
+                <div className="error-message" role="alert">
+                  <p>There was an error sending your message. Please try again later or email us directly at iona@compagnia.org.</p>
+                </div>
+              )}
+
               <button type="submit" className="submit-button" disabled={status === 'submitting'}>
                 {status === 'submitting' ? 'Sending...' : 'Submit'}
               </button>

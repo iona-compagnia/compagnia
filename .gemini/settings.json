@@ -5,14 +5,13 @@
   "general": {
     "previewFeatures": true,
     "enableAutoUpdate": false,
-    "showWelcomeTips": false
+    "showWelcomeTips": false,
+    "defaultApprovalMode": "auto_edit"
   },
   "model": {
     "name": "auto"
   },
-  "tools": {
-    "approvalMode": "auto_edit"
-  },
+  "tools": {},
   "security": {
     "folderTrust": {
       "enabled": false
