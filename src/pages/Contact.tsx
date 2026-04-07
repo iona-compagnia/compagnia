@@ -21,7 +21,7 @@ const Contact: FC = () => {
     };
 
     try {
-      await fetch('https://script.google.com/macros/s/AKfycbwbAceArKq7HZVfESpo2pvX2gQb_c5ktJS4mN5Gz6cQZVSEZoAXEC0Y9CdvpoL1XYT6/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbzQeDdTD-XsBtrcZ52HaPm2T7r4XJTsaGPhZTbWVhsQSzqeV8CcjBRCmV6l5_nCZh2Q/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
