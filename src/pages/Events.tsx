@@ -3,6 +3,14 @@ import FadeIn from '../components/FadeIn';
 import eventsData from '../data/events.json';
 import './Events.css';
 
+declare global {
+  interface Window {
+    umami?: {
+      track: (name: string, data?: Record<string, unknown>) => void;
+    };
+  }
+}
+
 interface Event {
   id: string;
   name: string;
@@ -41,6 +49,11 @@ const Events: FC = () => {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="tickets-button"
+                onClick={() => {
+                  if (window.umami) {
+                    window.umami.track('ticket-link-click', { concert: event.name });
+                  }
+                }}
               >
                 Tickets on Eventbrite
               </a>

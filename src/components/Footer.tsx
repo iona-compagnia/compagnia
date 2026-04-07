@@ -12,14 +12,32 @@ const InstagramIcon = () => (
 const Footer: FC = () => {
   const location = useLocation();
 
+  const trackClick = (name: string, data?: Record<string, unknown>) => {
+    if (window.umami) {
+      window.umami.track(name, data);
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="footer-inner">
         <div className="social-links">
-          <a href="https://www.instagram.com/compagnia.nyc/" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+          <a 
+            href="https://www.instagram.com/compagnia.nyc/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="social-icon-link"
+            onClick={() => trackClick('social-instagram-click')}
+          >
             <InstagramIcon />
           </a>
-          <a href="https://www.instagram.com/compagnia.nyc/" target="_blank" rel="noopener noreferrer" className="social-text-link">
+          <a 
+            href="https://www.instagram.com/compagnia.nyc/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="social-text-link"
+            onClick={() => trackClick('social-instagram-click')}
+          >
             @compagnia.nyc
           </a>
         </div>
@@ -29,8 +47,17 @@ const Footer: FC = () => {
         </div>
 
         <div className="contact-info">
-          <p>Contact: <a href="mailto:iona@compagnia.org">iona@compagnia.org</a></p>
-          <p><a href="https://fundraising.fracturedatlas.org/compagnia" target="_blank" rel="noopener noreferrer">Donate</a></p>
+          <p>Contact: <a href="mailto:iona@compagnia.org" onClick={() => trackClick('contact-email-click')}>iona@compagnia.org</a></p>
+          <p>
+            <a 
+              href="https://fundraising.fracturedatlas.org/compagnia" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={() => trackClick('donate-button-click', { location: 'footer' })}
+            >
+              Donate
+            </a>
+          </p>
         </div>
       </div>
     </footer>
