@@ -3,6 +3,8 @@
   padding-top: 2rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .countdown-announcement {
@@ -11,7 +13,14 @@
   line-height: 1.2;
   color: #333;
   margin: 1rem auto;
-  max-width: 600px;
+  padding: 2rem 3rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: inline-block;
+  max-width: 90%;
 }
 
 @media (max-width: 768px) {
@@ -22,5 +31,7 @@
   }
   .countdown-announcement {
     font-size: clamp(1.4rem, 6vw, 2rem);
+    padding: 1.5rem 2rem;
+    width: 90%;
   }
 }
