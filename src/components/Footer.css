@@ -24,9 +24,15 @@
 
 .social-links {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
   flex: 1;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .social-icon-link {

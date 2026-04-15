@@ -9,6 +9,12 @@ const InstagramIcon = () => (
   </svg>
 );
 
+const TikTokIcon = () => (
+  <svg className="sqs-svg-icon--social" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.89-.23-2.74.24-.81.47-1.37 1.29-1.47 2.21-.16.8.13 1.63.75 2.16.5.45 1.16.68 1.82.7 1.14.06 2.21-.58 2.75-1.55.29-.51.4-1.11.4-1.71-.02-4.57-.01-9.13-.01-13.7Z" />
+  </svg>
+);
+
 const Footer: FC = () => {
   const location = useLocation();
 
@@ -22,24 +28,46 @@ const Footer: FC = () => {
     <footer className="footer">
       <div className="footer-inner">
         <div className="social-links">
-          <a 
-            href="https://www.instagram.com/compagnia.nyc/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="social-icon-link"
-            onClick={() => trackClick('social-instagram-click')}
-          >
-            <InstagramIcon />
-          </a>
-          <a 
-            href="https://www.instagram.com/compagnia.nyc/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="social-text-link"
-            onClick={() => trackClick('social-instagram-click')}
-          >
-            @compagnia.nyc
-          </a>
+          <div className="social-item">
+            <a 
+              href="https://www.instagram.com/compagnia.nyc/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-icon-link"
+              onClick={() => trackClick('social-instagram-click')}
+            >
+              <InstagramIcon />
+            </a>
+            <a 
+              href="https://www.instagram.com/compagnia.nyc/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-text-link"
+              onClick={() => trackClick('social-instagram-click')}
+            >
+              @compagnia.nyc
+            </a>
+          </div>
+          <div className="social-item">
+            <a 
+              href="https://www.tiktok.com/@compagnia.nyc" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-icon-link"
+              onClick={() => trackClick('social-tiktok-click')}
+            >
+              <TikTokIcon />
+            </a>
+            <a 
+              href="https://www.tiktok.com/@compagnia.nyc" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-text-link"
+              onClick={() => trackClick('social-tiktok-click')}
+            >
+              @compagnia.nyc
+            </a>
+          </div>
         </div>
         
         <div className="footer-newsletter">
