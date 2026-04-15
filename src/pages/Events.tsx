@@ -19,7 +19,7 @@ interface Event {
   location: string;
   description: string;
   musicians: string[];
-  ticketLink: string;
+  ticketLink?: string;
 }
 
 const Events: FC = () => {
@@ -44,19 +44,21 @@ const Events: FC = () => {
                   ))}
                 </ul>
               </div>
-              <a 
-                href={event.ticketLink} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="tickets-button"
-                onClick={() => {
-                  if (window.umami) {
-                    window.umami.track('ticket-link-click', { concert: event.name });
-                  }
-                }}
-              >
-                Tickets on Eventbrite
-              </a>
+              {event.ticketLink && (
+                <a 
+                  href={event.ticketLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="tickets-button"
+                  onClick={() => {
+                    if (window.umami) {
+                      window.umami.track('ticket-link-click', { concert: event.name });
+                    }
+                  }}
+                >
+                  Tickets on Eventbrite
+                </a>
+              )}
             </div>
           </FadeIn>
         ))}
