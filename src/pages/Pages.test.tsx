@@ -20,8 +20,9 @@ describe('Page Components Smoke Tests', () => {
 
   it('renders Home page correctly', () => {
     renderWithRouter(<Home />);
-    // Check for a characteristic text on Home page
-    expect(screen.getByText(/Compagnia/i)).toBeInTheDocument();
+    // Check for Compagnia logo or the new announcement
+    expect(screen.getByAltText(/Compagnia Logo/i)).toBeInTheDocument();
+    expect(screen.getByText(/Season 1 Announcement Coming Soon!/i)).toBeInTheDocument();
   });
 
   it('renders About page correctly', () => {
