@@ -22,12 +22,12 @@
   }
   .countdown-announcement {
     font-size: clamp(1.4rem, 6vw, 2rem);
-    padding: 1.5rem 2rem;
-    width: 90%;
-    background-color: white;
-    backdrop-filter: blur(20px);
-    border-radius: 12px;
-    box-shadow: var(--shadow-medium);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0;
+    width: 100%;
+    background-color: transparent;
+    backdrop-filter: none;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
   }
 }

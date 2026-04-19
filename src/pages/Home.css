@@ -131,93 +131,58 @@
   .hero-container {
     height: auto;
     min-height: 100vh;
+    display: flex;
     flex-direction: column;
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
     justify-content: flex-start;
-    gap: 0;
-    overflow: hidden;
+    gap: 2rem;
+    overflow: visible;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    height: auto;
+    padding: 0;
+    gap: 2rem;
+  }
+
+  .hero-box {
+    display: block;
+    width: 100%;
+    background-color: white;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
     box-sizing: border-box;
   }
 
-  /* Make hero-content children direct children of hero-container for ordering */
-  .hero-content {
-    display: contents;
-    background: none;
-    backdrop-filter: none;
-    box-shadow: none;
-    border: none;
-    width: 100%;
-    padding: 0;
+  .hero-box.top {
+    order: 1;
   }
 
-  /* Box wrappers on mobile should also be transparent and follow the layout */
-  .hero-box {
-    display: flex;
-    flex-direction: column;
-    background: none;
-    backdrop-filter: none;
-    box-shadow: none;
-    border: none;
-    padding: 0;
-    width: 100%;
-  }
-
-  .hero-box.top .hero-subtitle {
-    text-align: center;
-    max-width: 500px;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-  }
-
-  .hero-box.top .hero-logo-wrapper .optimized-image-container {
-    width: 250px;
-  }
-
-  /* Ensure all direct children are properly sized */
-  .hero-container > * {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Order 1: Logo and Subtitle */
-  .hero-content > *:nth-child(1) { order: 1; width: 100%; } /* Logo FadeIn */
-  .hero-content > *:nth-child(2) { order: 2; width: 100%; } /* Subtitle FadeIn */
-  
-  /* Order 3: The Painting */
   .hero-container .hero-image.optimized-image-container {
     position: relative !important;
-    order: 3;
+    order: 2;
     width: 100% !important;
-    margin: 1.5rem 0;
     height: auto;
     aspect-ratio: 16/9;
-    max-height: 35vh;
+    max-height: 40vh;
     z-index: 1;
+    margin: 0;
   }
 
-  .hero-container .hero-image .optimized-image {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  /* Order 4: Countdown */
-  .hero-content > *:nth-child(3) { 
-    order: 4; 
-    width: 100% !important;
+  .hero-box.bottom {
+    order: 3;
     background-color: transparent;
+    box-shadow: none;
     padding: 0;
-    border-radius: 0;
-    margin-top: 1rem;
-  } 
+  }
 
-  .hero-content > *:nth-child(3) .countdown-container {
-    border-top: none;
-    margin-top: 0;
-    padding-top: 0;
-    width: 100% !important;
+  .hero-box.bottom .countdown-container {
+    background-color: white;
+    padding: 1.5rem;
   }
 
   .hero-logo-wrapper .optimized-image-container {
@@ -228,14 +193,13 @@
   
   .hero-subtitle {
     font-size: 1.1rem;
-    margin-bottom: 1rem;
-    padding: 0 0.5rem;
-    width: 100%;
-    box-sizing: border-box;
+    margin: 1rem 0 0;
+    padding: 0;
+    white-space: normal;
+    text-align: center;
   }
 
   .hero-logo-wrapper {
-    margin-bottom: 1.5rem;
-    width: 100%;
+    margin-bottom: 0;
   }
 }
