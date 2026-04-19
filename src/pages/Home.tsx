@@ -25,7 +25,9 @@ const Home: FC = () => {
               </div>
             </FadeIn>
             <FadeIn delay={0.3} direction="none">
-              <p className="hero-subtitle">Chamber music masterpieces in short form concerts.</p>
+              <p className="hero-subtitle">
+                Chamber music masterpieces <br className="mobile-only" /> in short form concerts.
+              </p>
             </FadeIn>
           </div>
 

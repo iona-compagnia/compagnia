@@ -127,7 +127,15 @@
   max-width: 500px;
 }
 
+.mobile-only {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .mobile-only {
+    display: block;
+  }
+
   .hero-container {
     height: auto;
     min-height: 100vh;
@@ -199,7 +207,7 @@
     padding: 0;
     white-space: normal;
     text-align: center;
-    max-width: 220px; /* Narrower to force two lines */
+    max-width: 90%; /* Using percentage to allow natural wrapping */
     line-height: 1.4;
     margin: 0.5rem auto 0;
   }
