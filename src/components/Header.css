@@ -125,6 +125,21 @@
   background-color: rgba(0,0,0,0.05);
 }
 
+/* Director link specifically */
+.dropdown-content a[href="/director"] {
+  background-color: white;
+  margin: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition-standard);
+}
+
+.dropdown-content a[href="/director"]:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
 /* Hamburger Styles */
 .hamburger {
   display: none;
@@ -283,5 +298,16 @@
     font-size: 1.3rem;
     padding: 0.4rem 0;
     opacity: 0.7;
+  }
+
+  .dropdown-content a[href="/director"] {
+    background-color: white;
+    opacity: 1;
+    margin: 1rem 0;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    width: auto;
+    display: inline-block;
+    box-shadow: var(--shadow-subtle);
   }
 }
