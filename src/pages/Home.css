@@ -33,15 +33,33 @@
 .hero-content {
   position: relative;
   z-index: 2;
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 5rem 4rem;
-  border-radius: 12px;
-  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
   width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-box {
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 3rem 4rem;
+  border-radius: 12px;
   text-align: center;
   box-shadow: var(--shadow-medium);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.hero-box.top {
+  padding-bottom: 2rem;
+}
+
+.hero-box.bottom {
+  padding: 2rem 4rem;
 }
 
 .hero-logo-wrapper {
@@ -92,6 +110,16 @@
     box-shadow: none;
     border: none;
     width: 100%;
+  }
+
+  /* Box wrappers on mobile should also be transparent and follow the layout */
+  .hero-box {
+    display: contents;
+    background: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    border: none;
+    padding: 0;
   }
 
   /* Ensure all direct children are properly sized */

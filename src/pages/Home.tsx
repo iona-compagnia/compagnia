@@ -14,23 +14,27 @@ const Home: FC = () => {
           className="hero-image fill"
         />
         <div className="hero-content">
-          <FadeIn direction="none">
-            <div className="hero-logo-wrapper">
-              <OptimizedImage 
-                src="/images/logo-full.png" 
-                alt="Compagnia Logo" 
-                className="hero-logo"
-              />
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.3} direction="none">
-            <p className="hero-subtitle">Chamber music masterpieces in short form concerts.</p>
-          </FadeIn>
-          <FadeIn delay={0.6} direction="none">
-            <Countdown />
-          </FadeIn>
-        </div>
-      </div>
+          <div className="hero-box top">
+            <FadeIn direction="none">
+              <div className="hero-logo-wrapper">
+                <OptimizedImage
+                  src="/images/logo-full.png"
+                  alt="Compagnia Logo"
+                  className="hero-logo"
+                />
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.3} direction="none">
+              <p className="hero-subtitle">Chamber music masterpieces in short form concerts.</p>
+            </FadeIn>
+          </div>
+
+          <div className="hero-box bottom">
+            <FadeIn delay={0.6} direction="none">
+              <Countdown />
+            </FadeIn>
+          </div>
+        </div>      </div>
     </div>
   );
 };
