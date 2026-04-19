@@ -185,6 +185,13 @@
     padding: 1.5rem;
   }
 
+  .hero-box.top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
   .hero-logo-wrapper .optimized-image-container {
     width: 250px;
     max-width: 80%;
