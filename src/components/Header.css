@@ -74,7 +74,7 @@
   position: absolute;
   top: calc(100% + 1rem);
   left: 50%;
-  background-color: rgba(223, 211, 189, 0.98); /* Matching theme-khaki with slight transparency */
+  background-color: rgba(242, 239, 230, 0.98); /* Matching the new creamy off-white with slight transparency */
   backdrop-filter: blur(10px);
   min-width: 160px;
   box-shadow: var(--shadow-medium);
