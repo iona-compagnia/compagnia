@@ -63,6 +63,24 @@ const Events: FC = () => {
           </FadeIn>
         ))}
       </div>
+
+      <FadeIn delay={0.6}>
+        <div className="debut-concert-section">
+          <a 
+            href="https://www.youtube.com/live/OjJ5fQ9LwRg?t=733&si=x4OUdvXdi6H_HQHy" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="tickets-button"
+            onClick={() => {
+              if (window.umami) {
+                window.umami.track('debut-concert-click');
+              }
+            }}
+          >
+            Watch our debut concert!
+          </a>
+        </div>
+      </FadeIn>
     </div>
   );
 };
