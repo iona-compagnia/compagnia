@@ -88,6 +88,25 @@
   transform: translateY(-2px);
 }
 
+.tickets-button.secondary {
+  margin-top: 0;
+  background-color: transparent;
+  color: var(--theme-dark);
+  border: 1px solid var(--theme-dark);
+}
+
+.tickets-button.secondary:hover {
+  background-color: var(--theme-dark);
+  color: #fff;
+}
+
+.event-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .debut-concert-section {
   margin-top: 4rem;
   border-top: 1px solid rgba(0,0,0,0.05);
