@@ -134,20 +134,14 @@
     display: flex;
     flex-direction: column;
     padding: 1.5rem 1rem;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 1.5rem;
     overflow: visible;
   }
 
+  /* Using display: contents allows hero-box items to be ordered relative to the image */
   .hero-content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-    padding: 0;
-    gap: 1.5rem;
-    flex-grow: 1;
-    justify-content: space-between;
+    display: contents;
   }
 
   .hero-box {
@@ -158,6 +152,7 @@
     border-radius: 12px;
     box-shadow: var(--shadow-medium);
     box-sizing: border-box;
+    z-index: 2;
   }
 
   .hero-box.top {
@@ -174,7 +169,7 @@
     width: 100% !important;
     height: auto;
     aspect-ratio: 16/9;
-    max-height: 45vh;
+    max-height: 40vh;
     z-index: 1;
     margin: 0;
   }
@@ -199,13 +194,14 @@
   }
   
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     margin: 0;
     padding: 0;
     white-space: normal;
     text-align: center;
-    max-width: 250px;
+    max-width: 220px; /* Narrower to force two lines */
     line-height: 1.4;
+    margin: 0.5rem auto 0;
   }
 
   .hero-logo-wrapper {
