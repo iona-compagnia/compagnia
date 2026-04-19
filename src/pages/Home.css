@@ -78,7 +78,8 @@
 .hero-box.top .hero-subtitle {
   margin: 0;
   text-align: left;
-  max-width: 400px;
+  max-width: none;
+  white-space: nowrap;
   font-size: 1.4rem;
 }
 
