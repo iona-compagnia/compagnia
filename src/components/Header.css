@@ -125,15 +125,6 @@
   background-color: rgba(0,0,0,0.05);
 }
 
-/* Director link specifically */
-.dropdown-content a[href="/director"] {
-  transition: var(--transition-standard);
-}
-
-.dropdown-content a[href="/director"]:hover {
-  background-color: rgba(0,0,0,0.05);
-}
-
 /* Hamburger Styles */
 .hamburger {
   display: none;
@@ -289,8 +280,8 @@
   }
 
   .dropdown-content a {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     padding: 0.4rem 0;
-    opacity: 0.7;
+    opacity: 1;
   }
 }
