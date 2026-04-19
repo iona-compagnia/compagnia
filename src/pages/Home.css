@@ -60,7 +60,20 @@
 }
 
 .hero-box.bottom {
+  padding: 0;
+  background-color: transparent;
+  backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+}
+
+.hero-box.bottom .countdown-container {
+  background-color: rgba(255, 255, 255, 0.75);
   padding: 2rem 4rem;
+  border-radius: 12px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-medium);
 }
 
 .hero-logo-wrapper {

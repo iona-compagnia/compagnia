@@ -1,7 +1,4 @@
 .countdown-container {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -12,13 +9,7 @@
   font-weight: 300;
   line-height: 1.2;
   color: #333;
-  margin: 1rem auto;
-  padding: 2rem 3rem;
-  background-color: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  border-radius: 12px;
-  box-shadow: var(--shadow-medium);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0;
   display: inline-block;
   max-width: 90%;
 }
@@ -33,5 +24,10 @@
     font-size: clamp(1.4rem, 6vw, 2rem);
     padding: 1.5rem 2rem;
     width: 90%;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 }
