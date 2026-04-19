@@ -9,7 +9,7 @@ const Home: FC = () => {
     <div className="home-page">
       <div className="hero-container">
         <OptimizedImage 
-          src="/images/home-bg.jpg" 
+          src="/images/Compagnia V-1.jpeg" 
           alt="Compagnia Hero" 
           className="hero-image fill"
         />
