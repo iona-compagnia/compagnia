@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Shortcut for Gemini
-alias g='gemini'
+# Shortcut for Antigravity
+alias g='agy'
 
 # Welcome Banner for the Director
 echo '---------------------------------------------------------'

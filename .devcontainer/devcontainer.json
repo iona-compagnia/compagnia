@@ -28,6 +28,6 @@
       "onAutoForward": "openBrowser"
     }
   },
-  "postCreateCommand": "npm install && sudo npm install -g @google/gemini-cli && echo 'source ${containerWorkspaceFolder}/.devcontainer/welcome.sh' >> ~/.bashrc && echo 'Ready!'",
+  "postCreateCommand": "npm install && curl -fsSL https://antigravity.google/cli/install.sh | bash && echo 'source ${containerWorkspaceFolder}/.devcontainer/welcome.sh' >> ~/.bashrc && echo 'Ready!'",
   "waitFor": "postCreateCommand"
 }
