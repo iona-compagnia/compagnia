@@ -19,10 +19,38 @@ The easiest way to edit this project is using **GitHub Codespaces**.
 2.  **Start Chatting**: In the black box at the bottom (the Terminal), type the letter **`g`** and hit Enter. 
 
 3.  **Ask for Changes**: Tell the AI what you want to do in plain English (e.g., "Change the concert date to March 15th").
-
 4.  **Automatic Updates**: The AI will edit the files and **push the changes live to the website** for you automatically!
 
+### 📅 How to Schedule Updates (Publish at a Later Time)
 
+If you want to prepare changes (like new concert details, bios, or banners) but do not want them to go live to the public until a specific date and time, you can ask Gemini to write a **Time-Locked Update**.
+
+Simply copy and paste a prompt like this into the chat:
+
+> **Example Prompt for Gemini:**
+> "I want to schedule an update for the [homepage countdown/concert section].
+> Keep the current version visible until [Friday, August 15th, 2026 at 12:00 PM EST].
+> At that exact time, automatically switch the content to: '[Insert your new content here]'.
+> Make sure to include a preview mode toggle using a `?preview=true` URL query parameter so I can test it beforehand."
+
+**How it works under the hood:**
+The AI will wrap the new updates in a date comparison block that checks the current time:
+```typescript
+const isPreview = new URLSearchParams(window.location.search).get('preview') === 'true';
+const isPastPublishTime = new Date() >= new Date('2026-08-15T12:00:00-04:00');
+
+if (isPastPublishTime || isPreview) {
+  // Show new scheduled content
+} else {
+  // Show current/old content
+}
+```
+
+**How to preview the scheduled changes:**
+Before the publish date, you can check what the website will look like after the launch:
+1. Open the local development preview (usually `http://localhost:5173`).
+2. Add `?preview=true` to the end of the URL in your browser address bar (e.g., `http://localhost:5173/?preview=true`).
+3. This will bypass the time lock and show you exactly what the site will look like when the release date arrives.
 
 ### 🚀 How to Save Your Changes
 
