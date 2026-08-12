@@ -9,6 +9,7 @@ interface Musician {
   name: string;
   imageSrc: string;
   link: string;
+  objectPosition?: string;
 }
 
 const Musicians: FC = () => {
@@ -24,6 +25,7 @@ const Musicians: FC = () => {
               name={musician.name}
               imageSrc={musician.imageSrc}
               link={musician.link}
+              objectPosition={musician.objectPosition}
             />
           </FadeIn>
         ))}

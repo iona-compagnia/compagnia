@@ -1,7 +1,47 @@
 [
   {
+    "id": "compagnia-iii",
+    "name": "Compagnia III",
+    "date": "Wednesday, September 16, 2026",
+    "time": "7:00 pm",
+    "location": "Marc A. Scorca Hall",
+    "description": "Beethoven Archduke Trio",
+    "musicians": [
+      "Isabella Geis, Violin",
+      "Iona Batchelder, Cello",
+      "Zhu Wang, Piano"
+    ]
+  },
+  {
+    "id": "compagnia-iv",
+    "name": "Compagnia IV",
+    "date": "Friday, January 15, 2027",
+    "time": "7:00 pm",
+    "location": "Marc A. Scorca Hall",
+    "description": "Philip Glass String Quartet No. 3 \"Mishima\" and Benjamin Britten String Quartet No. 2",
+    "musicians": []
+  },
+  {
     "id": "compagnia-v",
     "name": "Compagnia V",
+    "date": "Friday, April 9, 2027",
+    "time": "7:00 pm",
+    "location": "Marc A. Scorca Hall",
+    "description": "Brahms Clarinet Trio",
+    "musicians": []
+  },
+  {
+    "id": "compagnia-vi",
+    "name": "Compagnia VI",
+    "date": "June 2027",
+    "time": "7:00 pm",
+    "location": "Marc A. Scorca Hall",
+    "description": "Schoenberg Verklärte Nacht",
+    "musicians": []
+  },
+  {
+    "id": "compagnia-debut",
+    "name": "Compagnia V (Debut Concert)",
     "date": "Friday, April 10, 2026",
     "time": "7:00 pm",
     "location": "Marc A. Scorca Hall",
@@ -12,6 +52,7 @@
       "Hannah Burnett, Viola",
       "Iona Batchelder, Cello",
       "Samuel DeCaprio, Cello"
-    ]
+    ],
+    "debutLink": "https://www.youtube.com/live/OjJ5fQ9LwRg?t=733&si=x4OUdvXdi6H_HQHy"
   }
 ]

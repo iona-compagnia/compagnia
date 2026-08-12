@@ -28,6 +28,19 @@
     ]
   },
   {
+    "id": "isabella-geis",
+    "name": "Isabella Geis",
+    "displayName": "Isabella Geis",
+    "imageSrc": "/images/isabella.jpg",
+    "bioImageSrc": "/images/isabella.jpg",
+    "link": "/isabella-geis",
+    "bio": [
+      "Violinist and teaching artist Isabella Geis is an active chamber, orchestral, and solo musician based in New York City. She holds Master's and Bachelor's degrees from The Juilliard School, where she studied under Naoko Tanaka and David Chan.",
+      "Isabella has performed extensively across the United States in cities such as Atlanta, Aspen, Detroit, and Cincinnati. Recently, she has frequently collaborated with the Orchestra of St. Luke’s and The Knights, appearing at prestigious venues including Radio City Music Hall, Carnegie Hall, and the Elbphilharmonie Hamburg. Additionally, she has been featured as a soloist at New York Fashion Week and returns annually to The Aspen Institute to perform Bach’s Chaconne for the Henry Crown Fellowship program.",
+      "Deeply committed to education and community engagement, Isabella served as a teaching fellow for Juilliard's CLIMB (Combining Literacy Instruction with Musical Beginnings) program and as a Morse Community Engagement Teaching Artist. Through the latter, she began her extensive work with The Harmony Program, bringing music instruction to schools throughout the Bronx and Manhattan. Today, Ms. Geis continues her passion for education by teaching violin to over one hundred elementary and middle school students at the Washington Heights and Inwood Music Community Charter School (WHIN)."
+    ]
+  },
+  {
     "id": "jennifer-ahn",
     "name": "Jennifer Ahn",
     "displayName": "Jennifer Ahn",
@@ -61,6 +74,20 @@
     "bio": [
       "Cellist Samuel DeCaprio is a dynamic performer and teacher based in the Tri-State area. Among his numerous honors, he received a Norman Benzaquen Career Advancement Grant from The Juilliard School, won the Aldo Parisot Prize at the Yale School of Music and the prestigious Performer's Certificate from the Eastman School of Music, along with top prizes from the Arlington, Eastern Connecticut Symphony, National Federation of Music Clubs, and William C. Byrd competitions. His New York debut featured the North American premiere of Grażyna Bacewicz’s Cello Concerto No. 2 with the Juilliard Orchestra and conductor David Robertson in Alice Tully Hall. Appearing across the globe as a soloist and chamber musician, he has been featured on prominent radio programs including WQXR New York, WFMT Chicago, NPR, and WCNI, and has recorded for Delos, ECM Records, MSR Classics, and Nonesuch Records. He has played as a substitute with the New York Philharmonic, New York City Ballet, and Princeton Symphony Orchestra.",
       "A passionate chamber musician, DeCaprio’s festival appearances include Ravinia Steans Music Institute, IMS Prussia Cove Open Chamber Music, Les Rencontres Musicales de Noyers-sur-Serein, Domaine Forget, Kneisel Hall, Lake George, Meadowmount, and Orford Musique, and collaborated with renowned artists, including Atar Arad, Paul Biss, Natasha Brofsky, Steven Doane, Vladimir Feltsman, Joseph Lin, Daniel Phillips, David Shifrin, Barry Snyder, and Irma Vallecillo. In 2022, DeCaprio founded the Arazzo Music Festival—an annual chamber music festival focused on bringing free high-caliber concerts and educational events to his home state of Connecticut. DeCaprio holds degrees from UConn, Eastman, Mannes, Yale, and Juilliard. His principal teachers include Joel Krosnick, Aldo Parisot, Marcy Rosen, Steven Doane, and Kangho Lee."
+    ]
+  },
+  {
+    "id": "zhu-wang",
+    "name": "Zhu Wang",
+    "displayName": "Zhu Wang",
+    "imageSrc": "/images/zhu.jpg",
+    "bioImageSrc": "/images/zhu.jpg",
+    "link": "/zhu-wang",
+    "objectPosition": "85% 20%",
+    "bio": [
+      "Praised as “especially impressive” and “a thoughtful, sensitive performer” who “balanced lyrical warmth and crisp clarity”(Tommasini–The New York Times), Chinese pianist Zhu Wang has won the 71st Maria Canals International Piano Competition of Barcelona, receiving the Fundació Occident Prize in March 2026. He was awarded First Prize in the 2020 Young Concert Artists Susan Wadsworth International Auditions, Gold Medalist at 2024 New Orleans International Piano Competition. Zhu was one of the finalists in the 2019 Clara Haskil International Piano Competition, and the prize of Audience Favorite during the Opening Play-off and Female Composer Prize of 2024 Cleveland International Piano Competition. The world-renowned pianist Fou Ts’ong recognized Zhu as an “excellent pianist with a natural sense of harmony and imagination,” whose sensitive and engaging performances exhibit a remarkable depth of musicianship and poise.",
+      "An avid chamber musician, Zhu has appeared on series such as Chamber Music Detroit, Bridgehampton Chamber Music Festival, Vancouver Recital Society, La Jolla Music Society, Stanford Live, Hamilton College, Four Seasons Chamber Music Festival, Howland Chamber Music Series, Chesapeake Music, Clarion Concerts, Philadelphia Chamber Music Society,  and Chamber Music Society of Lincoln Center. Zhu is an alum of Kneisel Hall Chamber Music School, Bravo! Vail, Caramoor’s Evnin Rising Stars, Music@Menlo International Program, and he regularly appears in chamber music recitals with violinist Randall Goosby.",
+      "A native of Hunan Province, China, Zhu started learning piano at the age of five following his grandfather’s love of music. Zhu is a graduate of Curtis Institute of Music and The Juilliard School and received Gina Bachauer Scholarship, Mieczyslaw Munz Scholarship, and Mehlin Prize. His mentors are Robert McDonald, Mikhail Voskerensky, Emanuel Ax, Angela Hewitt and Zhe Tang. He gratefully acknowledges the support of the Bagby Foundation for the Musical Arts. Zhu currently lives in New York City with his wife Chloe and their beloved three cats, Chaz, Tùzi and Juzí."
     ]
   }
 ]

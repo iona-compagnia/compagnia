@@ -20,9 +20,9 @@ describe('Page Components Smoke Tests', () => {
 
   it('renders Home page correctly', () => {
     renderWithRouter(<Home />);
-    // Check for Compagnia logo or the new announcement
+    // Check for Compagnia logo and the COMPAGNIA III announcement
     expect(screen.getByAltText(/Compagnia Logo/i)).toBeInTheDocument();
-    expect(screen.getByText(/Season 1 Announcement Coming Soon!/i)).toBeInTheDocument();
+    expect(screen.getByText(/COMPAGNIA III/i)).toBeInTheDocument();
   });
 
   it('renders About page correctly', () => {
@@ -52,13 +52,23 @@ describe('Page Components Smoke Tests', () => {
 
   it('renders Bio page for a musician correctly', () => {
     render(
-      <MemoryRouter initialEntries={['/ariel-horowitz']}>
+      <MemoryRouter initialEntries={['/isabella-geis']}>
         <Routes>
           <Route path="/:musicianId" element={<Bio />} />
         </Routes>
       </MemoryRouter>
     );
-    // Find the H1 element specifically to avoid multiple matches
-    expect(screen.getByRole('heading', { name: /Ariel Horowitz/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Isabella Geis/i })).toBeInTheDocument();
+  });
+
+  it('renders Bio page for Zhu Wang correctly', () => {
+    render(
+      <MemoryRouter initialEntries={['/zhu-wang']}>
+        <Routes>
+          <Route path="/:musicianId" element={<Bio />} />
+        </Routes>
+      </MemoryRouter>
+    );
+    expect(screen.getByRole('heading', { name: /Zhu Wang/i })).toBeInTheDocument();
   });
 });

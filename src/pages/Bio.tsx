@@ -10,6 +10,7 @@ interface MusicianData {
   displayName: string;
   bioImageSrc: string;
   bio: string[];
+  objectPosition?: string;
 }
 
 const Bio: FC = () => {
@@ -32,7 +33,12 @@ const Bio: FC = () => {
       <div className="bio-container">
         <div className="bio-image-section">
           <FadeIn direction="right">
-            <OptimizedImage src={musician.bioImageSrc} alt={musician.displayName} className="bio-image" />
+            <OptimizedImage 
+              src={musician.bioImageSrc} 
+              alt={musician.displayName} 
+              className="bio-image" 
+              imgStyle={musician.objectPosition ? { objectPosition: musician.objectPosition } : undefined}
+            />
           </FadeIn>
         </div>
         <div className="bio-text-section">

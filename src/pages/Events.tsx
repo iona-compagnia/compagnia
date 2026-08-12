@@ -20,6 +20,7 @@ interface Event {
   description: string;
   musicians: string[];
   ticketLink?: string;
+  debutLink?: string;
 }
 
 const Events: FC = () => {
@@ -38,27 +39,31 @@ const Events: FC = () => {
               <p className="event-location">{event.location}</p>
               <div className="event-description">
                 <p>{event.description}</p>
-                <ul className="musician-list">
-                  {event.musicians.map((musician, mIndex) => (
-                    <li key={mIndex}>{musician}</li>
-                  ))}
-                </ul>
+                {event.musicians.length > 0 && (
+                  <ul className="musician-list">
+                    {event.musicians.map((musician, mIndex) => (
+                      <li key={mIndex}>{musician}</li>
+                    ))}
+                  </ul>
+                )}
 
-                <div className="event-actions">
-                  <a 
-                    href="https://www.youtube.com/live/OjJ5fQ9LwRg?t=733&si=x4OUdvXdi6H_HQHy" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="tickets-button secondary"
-                    onClick={() => {
-                      if (window.umami) {
-                        window.umami.track('debut-concert-click');
-                      }
-                    }}
-                  >
-                    Watch our debut concert!
-                  </a>
-                </div>
+                {event.debutLink && (
+                  <div className="event-actions">
+                    <a 
+                      href={event.debutLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="tickets-button secondary"
+                      onClick={() => {
+                        if (window.umami) {
+                          window.umami.track('debut-concert-click');
+                        }
+                      }}
+                    >
+                      Watch our debut concert!
+                    </a>
+                  </div>
+                )}
               </div>
               {event.ticketLink && (
                 <a 

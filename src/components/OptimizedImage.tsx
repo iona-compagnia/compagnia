@@ -6,9 +6,10 @@ interface OptimizedImageProps {
   src: string;
   alt: string;
   className?: string;
+  imgStyle?: React.CSSProperties;
 }
 
-const OptimizedImage: FC<OptimizedImageProps> = ({ src, alt, className = '' }) => {
+const OptimizedImage: FC<OptimizedImageProps> = ({ src, alt, className = '', imgStyle }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -39,6 +40,7 @@ const OptimizedImage: FC<OptimizedImageProps> = ({ src, alt, className = '' }) =
         alt={alt}
         decoding="async"
         className={`optimized-image ${isLoaded ? 'loaded' : 'loading'} ${hasError ? 'error' : ''}`}
+        style={imgStyle}
         onLoad={handleLoad}
         onError={handleError}
       />

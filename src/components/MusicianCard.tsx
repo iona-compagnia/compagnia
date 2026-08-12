@@ -15,13 +15,19 @@ interface MusicianCardProps {
   name: string;
   imageSrc: string;
   link: string;
+  objectPosition?: string;
 }
 
-const MusicianCard: FC<MusicianCardProps> = ({ name, imageSrc, link }) => {
+const MusicianCard: FC<MusicianCardProps> = ({ name, imageSrc, link, objectPosition }) => {
   return (
     <div className="musician-card">
       <div className="image-container">
-        <OptimizedImage src={imageSrc} alt={name} className="musician-image" />
+        <OptimizedImage 
+          src={imageSrc} 
+          alt={name} 
+          className="musician-image" 
+          imgStyle={objectPosition ? { objectPosition } : undefined} 
+        />
       </div>
       <div className="button-container">
         <Link 
