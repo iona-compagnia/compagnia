@@ -1,0 +1,33 @@
+{
+  "name": "Compagnia Web Dev",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "workbench.startupEditor": "none",
+        "workbench.activityBar.visible": true,
+        "editor.minimap.enabled": false,
+        "editor.fontSize": 16,
+        "editor.wordWrap": "on",
+        "editor.lineHeight": 24,
+        "workbench.editorAssociations": {
+          "README.md": "default"
+        }
+      }
+    }
+  },
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "Website Preview",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "npm install && curl -fsSL https://antigravity.google/cli/install.sh | bash && echo 'source ${containerWorkspaceFolder}/.devcontainer/welcome.sh' >> ~/.bashrc && echo 'Ready!'",
+  "waitFor": "postCreateCommand"
+}

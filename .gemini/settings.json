@@ -1,0 +1,26 @@
+{
+  "ide": {
+    "hasSeenNudge": true
+  },
+  "general": {
+    "previewFeatures": true,
+    "enableAutoUpdate": false,
+    "showWelcomeTips": false,
+    "defaultApprovalMode": "auto_edit"
+  },
+  "model": {
+    "name": "auto"
+  },
+  "tools": {},
+  "security": {
+    "folderTrust": {
+      "enabled": false
+    }
+  },
+  "telemetry": {
+    "enabled": false
+  },
+  "experimental": {
+    "enableAgents": true
+  }
+}
