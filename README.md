@@ -52,6 +52,17 @@ Before the publish date, you can check what the website will look like after the
 2. Add `?preview=true` to the end of the URL in your browser address bar (e.g., `http://localhost:5173/?preview=true`).
 3. This will bypass the time lock and show you exactly what the site will look like when the release date arrives.
 
+### 🖼️ Automatic Image Optimization
+
+To keep the website loading super fast, any JPEG images uploaded to the `public/images/` folder need to be compressed for the web.
+
+We have automated this process:
+1. **Auto-Compression on Commit:** Whenever you (or Gemini) save and commit changes, a pre-commit check will automatically find, resize, and compress any newly added JPEGs to web-friendly sizes (maximum width/height of 1200px for profiles and 2000px for banners, at 80% quality).
+2. **Manual Optimization:** You can manually run the optimizer at any time by running this command in the terminal:
+   ```bash
+   npm run compress-images
+   ```
+
 ### 🚀 How to Save Your Changes
 
 The AI handles the saving for you. If you ever need to save a change manually, use the **Source Control** tab on the left to "Commit" and "Sync" your work.

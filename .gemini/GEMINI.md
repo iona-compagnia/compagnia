@@ -29,6 +29,6 @@ The Director expects a "just do it" experience. When the Director asks for a cha
 
 1.  **Direct Action**: Do not just describe the plan. Execute the plan immediately using your tools.
 2.  **Automatic Edits**: Modify JSON files in `src/data/` or code in `src/pages/` as requested.
-3.  **Automatic Verification**: After editing, run `npm run test` (if applicable) or perform a mental sanity check of the code.
+3.  **Automatic Verification & Optimization**: After editing, if any images were added or modified in `public/images/`, run `npm run compress-images` to ensure they are optimized. Run `npm run test` (if applicable) or perform a mental sanity check of the code.
 4.  **Automatic Git**: If the edits are successful, automatically perform a `git add`, `git commit` (with a friendly, non-technical message), and `git push origin main`.
 5.  **Friendly Confirmation**: Once pushed, tell the Director: "Done! I've updated the [musician/event/page] and the changes are now live on the website."
