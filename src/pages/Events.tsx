@@ -53,7 +53,7 @@ const Events: FC = () => {
                       href={event.debutLink} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="tickets-button secondary"
+                      className="tickets-button"
                       onClick={() => {
                         if (window.umami) {
                           window.umami.track('debut-concert-click');

@@ -5,12 +5,13 @@
     "date": "Wednesday, September 16, 2026",
     "time": "7:00 pm",
     "location": "Marc A. Scorca Hall",
-    "description": "Beethoven Archduke Trio",
+    "description": "Beethoven \"Archduke\" Piano Trio",
     "musicians": [
       "Isabella Geis, Violin",
       "Iona Batchelder, Cello",
       "Zhu Wang, Piano"
-    ]
+    ],
+    "ticketLink": "https://www.eventbrite.com/e/1997848905858?aff=oddtdtcreator"
   },
   {
     "id": "compagnia-iv",
@@ -19,7 +20,8 @@
     "time": "7:00 pm",
     "location": "Marc A. Scorca Hall",
     "description": "Philip Glass String Quartet No. 3 \"Mishima\"\nBenjamin Britten String Quartet No. 2",
-    "musicians": []
+    "musicians": [],
+    "ticketLink": "https://www.eventbrite.com/e/1997849102446?aff=oddtdtcreator"
   },
   {
     "id": "compagnia-v",
@@ -28,7 +30,8 @@
     "time": "7:00 pm",
     "location": "Marc A. Scorca Hall",
     "description": "Brahms Clarinet Trio",
-    "musicians": []
+    "musicians": [],
+    "ticketLink": "https://www.eventbrite.com/e/1997852152569?aff=oddtdtcreator"
   },
   {
     "id": "compagnia-vi",
