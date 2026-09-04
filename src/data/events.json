@@ -20,24 +20,33 @@
     "time": "7:00 pm",
     "location": "Marc A. Scorca Hall",
     "description": "Philip Glass String Quartet No. 3 \"Mishima\"\nBenjamin Britten String Quartet No. 2",
-    "musicians": [],
+    "musicians": [
+      "Emma Frucht, Violin",
+      "Isabella Geis, Violin",
+      "Hannah Burnett, Viola",
+      "Iona Batchelder, Cello"
+    ],
     "ticketLink": "https://www.eventbrite.com/e/1997849102446?aff=oddtdtcreator"
   },
   {
-    "id": "compagnia-v",
-    "name": "Compagnia V",
+    "id": "compagnia-iii-april",
+    "name": "Compagnia III",
     "date": "Friday, April 9, 2027",
     "time": "7:00 pm",
     "location": "Marc A. Scorca Hall",
     "description": "Brahms Clarinet Trio",
-    "musicians": [],
+    "musicians": [
+      "Pascal Archer, Clarinet",
+      "Iona Batchelder, Cello",
+      "Joanne Kang, Piano"
+    ],
     "ticketLink": "https://www.eventbrite.com/e/1997852152569?aff=oddtdtcreator"
   },
   {
     "id": "compagnia-vi",
     "name": "Compagnia VI",
     "date": "June 2027",
-    "time": "",
+
     "location": "Marc A. Scorca Hall",
     "description": "Schoenberg Verklärte Nacht",
     "musicians": []

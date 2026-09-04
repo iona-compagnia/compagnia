@@ -28,6 +28,19 @@
     ]
   },
   {
+    "id": "emma-frucht",
+    "name": "Emma Frucht",
+    "displayName": "Emma Frucht",
+    "imageSrc": "/images/emma.jpg",
+    "bioImageSrc": "/images/emma.jpg",
+    "link": "/emma-frucht",
+    "bio": [
+      "Violinist Emma Frucht is celebrated for her fearless leadership, warmly expressive playing, and collaborative spirit that inspires fellow musicians and audiences alike. A dedicated orchestral leader, Emma is co-concertmaster and a core Chamber Ensemble member of the Orchestra of St. Luke’s in New York City. She performs regularly in leadership positions with the New York Classical Players, East Coast Chamber Orchestra, A Far Cry, Orpheus Chamber Orchestra, The Oratorio Society of New York, and Musica Sacra, and is a recurrent guest with the American Ballet Theater Orchestra.",
+      "A native New Yorker, Emma completed her undergraduate studies at Harvard University, majoring in Art History. Shortly after earning her Master of Music degree from the Juilliard School, Emma joined the Grammy-nominated Aizuri Quartet. A member of the Quartet from 2019-2025, notable highlights from her time in the group include the quartet’s major concerto debut with the Milwaukee Symphony Orchestra performing John Adams’s Absolute Jest, their debuts at the 92Y , Carnegie Hall, and Boston’s Celebrity Series, and Chamber Music America’s Cleveland Quartet Award.",
+      "Emma relishes any chance to collaborate with living composers, finding great joy in the process of bringing their works to life. She has participated in numerous premieres, most recently including the world premiere of George Meyer’s Concerto for Two Violins and Viola with the New York Classical Players, a string quartet by Jennifer Higdon commissioned for the Buffalo Chamber Music Society’s 100th Anniversary, and leading the Carnegie Hall premieres of new symphonic works by Billy Childs and Joe Hisaishi as concertmaster."
+    ]
+  },
+  {
     "id": "isabella-geis",
     "name": "Isabella Geis",
     "displayName": "Isabella Geis",
@@ -77,6 +90,20 @@
     ]
   },
   {
+    "id": "joanne-kang",
+    "name": "Joanne Kang",
+    "displayName": "Joanne Kang",
+    "imageSrc": "/images/joanne.jpg",
+    "bioImageSrc": "/images/joanne.jpg",
+    "link": "/joanne-kang",
+    "bio": [
+      "Dr. Joanne Kang is a New York-based Australian pianist and teaching artist praised for her “fleet-fingered virtuosity” and stylistic versatility. A prizewinner of national and international competitions and scholarships, she maintains an active career as a soloist, chamber musician, and recording artist, and is regularly engaged to perform national and world premieres.",
+      "Joanne has collaborated with artists and ensembles including the American String Quartet, The Afield, American Modern Opera Company, West Australian Symphony Orchestra, Julia Wolfe, members of the Silk Road Ensemble, and the late Kaija Saariaho, for whom she performed the world premiere of Semafor, the composer’s final chamber work. From 2020–2023, she was pianist of Carnegie Hall’s Ensemble Connect, hailed as “one of the strongest ensembles in the city” (New York Classical Review). She has appeared on major stages and for organizations including Rocket City New Music, Philadelphia Chamber Music Society, Chamber Music Society of Central Virginia, Ballet Fantastique, Carnegie Hall, Lincoln Center, the Guggenheim Museum, Sydney Opera House, Seoul Arts Center, National Sawdust, and Salle Bourgie, among others.",
+      "Joanne earned her Bachelor, Master, and Doctor of Musical Arts degrees from the Manhattan School of Music, where she received the Harold Bauer Award and Helen Cohn Award. As assistant to the late Prof. Phillip Kawin and a Doctoral Teaching Fellow in the Keyboard Skills Department, she taught undergraduate and graduate keyboard skills, individual piano lessons, and studio classes. From 2020–2024, she also held teaching residencies at Skidmore College through Ensemble Connect, providing private instruction and chamber music coaching.",
+      "Her recordings include albums 1Q84 (ODDSOUND Records, 2024) and i wish i were dead with Duo Étrange (ATMA Classique, 2026). An upcoming release features cello and piano works by New York composers Gene Pritsker and Randall Woolf (Composers Concordance Records/Naxos)."
+    ]
+  },
+  {
     "id": "zhu-wang",
     "name": "Zhu Wang",
     "displayName": "Zhu Wang",
@@ -88,6 +115,23 @@
       "Praised as “especially impressive” and “a thoughtful, sensitive performer” who “balanced lyrical warmth and crisp clarity”(Tommasini–The New York Times), Chinese pianist Zhu Wang has won the 71st Maria Canals International Piano Competition of Barcelona, receiving the Fundació Occident Prize in March 2026. He was awarded First Prize in the 2020 Young Concert Artists Susan Wadsworth International Auditions, Gold Medalist at 2024 New Orleans International Piano Competition. Zhu was one of the finalists in the 2019 Clara Haskil International Piano Competition, and the prize of Audience Favorite during the Opening Play-off and Female Composer Prize of 2024 Cleveland International Piano Competition. The world-renowned pianist Fou Ts’ong recognized Zhu as an “excellent pianist with a natural sense of harmony and imagination,” whose sensitive and engaging performances exhibit a remarkable depth of musicianship and poise.",
       "An avid chamber musician, Zhu has appeared on series such as Chamber Music Detroit, Bridgehampton Chamber Music Festival, Vancouver Recital Society, La Jolla Music Society, Stanford Live, Hamilton College, Four Seasons Chamber Music Festival, Howland Chamber Music Series, Chesapeake Music, Clarion Concerts, Philadelphia Chamber Music Society,  and Chamber Music Society of Lincoln Center. Zhu is an alum of Kneisel Hall Chamber Music School, Bravo! Vail, Caramoor’s Evnin Rising Stars, Music@Menlo International Program, and he regularly appears in chamber music recitals with violinist Randall Goosby.",
       "A native of Hunan Province, China, Zhu started learning piano at the age of five following his grandfather’s love of music. Zhu is a graduate of Curtis Institute of Music and The Juilliard School and received Gina Bachauer Scholarship, Mieczyslaw Munz Scholarship, and Mehlin Prize. His mentors are Robert McDonald, Mikhail Voskerensky, Emanuel Ax, Angela Hewitt and Zhe Tang. He gratefully acknowledges the support of the Bagby Foundation for the Musical Arts. Zhu currently lives in New York City with his wife Chloe and their beloved three cats, Chaz, Tùzi and Juzí."
+    ]
+  },
+  {
+    "id": "pascal-archer",
+    "name": "Pascal Archer",
+    "displayName": "Pascal Archer",
+    "imageSrc": "/images/pascal.jpg",
+    "bioImageSrc": "/images/pascal.jpg",
+    "link": "/pascal-archer",
+    "bio": [
+      "Hailed by The New York Times as “an outstanding clarinetist,” Pascal Archer leads an active career as a performer and teacher.",
+      "He is the founder and artistic director of Exponential Ensemble, a chamber music ensemble that creates educational programs and commissions new works connecting music with math, science, and literacy. He has collaborated with the JACK and St. Lawrence String Quartets, the North Country Chamber Players, Orpheus Chamber Orchestra, and Camerata Pacifica, and has toured with Musicians from Marlboro.",
+      "Since 2006, Pascal has been principal clarinetist of the NEPA Philharmonic. During his tenure with the orchestra, he has served as a board member and chamber music coordinator and founded the NEPP Mentoring Program. He is also principal clarinetist of the Glimmerglass Festival Orchestra and Princeton Symphony Orchestra.",
+      "A former member of the New World Symphony, he has served as Acting Principal Clarinet of the New Jersey Symphony for three seasons and as a guest clarinetist with the Metropolitan Opera Orchestra. He has performed in the orchestras of numerous Broadway productions, including Sweeney Todd, Mary Poppins, South Pacific, On the Town, Fiddler on the Roof, and My Fair Lady. He has also performed at renowned music festivals including Mostly Mozart, Mostly Modern, Verbier, Spoleto USA, Marlboro, and Sun Valley Summer Symphony.",
+      "Mr. Archer is on the faculty of the Manhattan School of Music Precollege, Fordham University, and Hunter College. Additionally, he coaches chamber music at the Chamber Music Center of New York and the Alaria Chamber Ensemble.",
+      "Originally from Québec, Mr. Archer holds degrees in music performance from the Conservatoire de Musique de Montréal, Université de Montréal, Indiana University, and the Manhattan School of Music.",
+      "In his free time, Pascal enjoys swimming, great meals with friends, and traveling to warm destinations."
     ]
   }
 ]

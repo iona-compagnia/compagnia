@@ -16,7 +16,10 @@ const PROFILE_IMAGES = [
   'hannah.jpg',
   'samuel.jpg',
   'jennifer.jpg',
-  'iona-profile.jpg'
+  'iona-profile.jpg',
+  'emma.jpg',
+  'joanne.jpg',
+  'pascal.jpg'
 ];
 
 // Hero/banners are restricted to 2000px max dimension

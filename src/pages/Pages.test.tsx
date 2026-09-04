@@ -71,4 +71,37 @@ describe('Page Components Smoke Tests', () => {
     );
     expect(screen.getByRole('heading', { name: /Zhu Wang/i })).toBeInTheDocument();
   });
+
+  it('renders Bio page for Emma Frucht correctly', () => {
+    render(
+      <MemoryRouter initialEntries={['/emma-frucht']}>
+        <Routes>
+          <Route path="/:musicianId" element={<Bio />} />
+        </Routes>
+      </MemoryRouter>
+    );
+    expect(screen.getByRole('heading', { name: /Emma Frucht/i })).toBeInTheDocument();
+  });
+
+  it('renders Bio page for Joanne Kang correctly', () => {
+    render(
+      <MemoryRouter initialEntries={['/joanne-kang']}>
+        <Routes>
+          <Route path="/:musicianId" element={<Bio />} />
+        </Routes>
+      </MemoryRouter>
+    );
+    expect(screen.getByRole('heading', { name: /Joanne Kang/i })).toBeInTheDocument();
+  });
+
+  it('renders Bio page for Pascal Archer correctly', () => {
+    render(
+      <MemoryRouter initialEntries={['/pascal-archer']}>
+        <Routes>
+          <Route path="/:musicianId" element={<Bio />} />
+        </Routes>
+      </MemoryRouter>
+    );
+    expect(screen.getByRole('heading', { name: /Pascal Archer/i })).toBeInTheDocument();
+  });
 });
