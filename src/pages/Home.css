@@ -236,7 +236,7 @@
   }
 
   .hero-container .hero-image.optimized-image-container {
-    width: 320px !important;
+    width: 420px !important;
     max-width: 90% !important;
     margin: 0 auto;
     border-radius: 12px;
@@ -251,7 +251,7 @@
   }
 
   .hero-box.bottom .countdown-container {
-    width: 320px;
+    width: 420px;
     max-width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
