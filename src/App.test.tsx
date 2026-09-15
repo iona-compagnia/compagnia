@@ -15,4 +15,10 @@ describe('App Smoke Test', () => {
     render(<App />);
     expect(screen.getByRole('heading', { level: 1, name: /Beethoven’s Piano Trio Op\. 97, “Archduke”/i })).toBeInTheDocument();
   });
+
+  it('renders Subscribe page when navigating to /subscribe', () => {
+    window.history.pushState({}, '', '/subscribe');
+    render(<App />);
+    expect(screen.getByRole('heading', { level: 1, name: /Subscribe/i })).toBeInTheDocument();
+  });
 });

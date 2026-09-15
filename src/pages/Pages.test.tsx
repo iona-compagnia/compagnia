@@ -9,6 +9,7 @@ import Musicians from './Musicians';
 import Contact from './Contact';
 import Bio from './Bio';
 import Archduke from './Archduke';
+import Subscribe from './Subscribe';
 
 describe('Page Components Smoke Tests', () => {
   const renderWithRouter = (ui: React.ReactElement, { route = '/' } = {}) => {
@@ -114,5 +115,25 @@ describe('Page Components Smoke Tests', () => {
     expect(screen.getByText(/II\. Scherzo \(Fast and light\)/i)).toBeInTheDocument();
     expect(screen.getByText(/III\. Andante cantabile \(Slow\)/i)).toBeInTheDocument();
     expect(screen.getByText(/IV\. Allegro moderato – Presto \(Fast\)/i)).toBeInTheDocument();
+  });
+
+  it('renders Subscribe page correctly with required first name, last name, email, and no message box', () => {
+    renderWithRouter(<Subscribe />);
+    expect(screen.getByRole('heading', { level: 1, name: /Subscribe/i })).toBeInTheDocument();
+
+    const firstNameInput = screen.getByLabelText(/First Name \*/i);
+    const lastNameInput = screen.getByLabelText(/Last Name \*/i);
+    const emailInput = screen.getByLabelText(/Email \*/i);
+
+    expect(firstNameInput).toBeInTheDocument();
+    expect(firstNameInput).toBeRequired();
+
+    expect(lastNameInput).toBeInTheDocument();
+    expect(lastNameInput).toBeRequired();
+
+    expect(emailInput).toBeInTheDocument();
+    expect(emailInput).toBeRequired();
+
+    expect(screen.queryByLabelText(/Message/i)).not.toBeInTheDocument();
   });
 });

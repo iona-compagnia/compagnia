@@ -11,6 +11,7 @@ import Musicians from './pages/Musicians';
 import Bio from './pages/Bio';
 import Contact from './pages/Contact';
 import Archduke from './pages/Archduke';
+import Subscribe from './pages/Subscribe';
 import './App.css';
 
 const App: FC = () => {
@@ -28,6 +29,7 @@ const App: FC = () => {
             <Route path="/musicians" element={<Musicians />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/archduke" element={<Archduke />} />
+            <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/:musicianId" element={<Bio />} />
           </Routes>
         </main>
