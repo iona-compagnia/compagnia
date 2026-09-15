@@ -60,7 +60,7 @@ const Header: FC = () => {
             <li className="nav-item"><NavLink to="/contact" onClick={closeMenu}>Contact</NavLink></li>
             <li className="nav-item">
               <a 
-                href="https://fundraising.fracturedatlas.org/compagnia" 
+                href="https://fundraising.fracturedatlas.org/compagnia/general_support" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 onClick={() => {
