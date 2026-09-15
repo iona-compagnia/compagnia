@@ -10,6 +10,7 @@ import Events from './pages/Events';
 import Musicians from './pages/Musicians';
 import Bio from './pages/Bio';
 import Contact from './pages/Contact';
+import Archduke from './pages/Archduke';
 import './App.css';
 
 const App: FC = () => {
@@ -26,6 +27,7 @@ const App: FC = () => {
             <Route path="/events" element={<Events />} />
             <Route path="/musicians" element={<Musicians />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/archduke" element={<Archduke />} />
             <Route path="/:musicianId" element={<Bio />} />
           </Routes>
         </main>

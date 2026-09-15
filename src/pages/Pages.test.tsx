@@ -8,6 +8,7 @@ import Events from './Events';
 import Musicians from './Musicians';
 import Contact from './Contact';
 import Bio from './Bio';
+import Archduke from './Archduke';
 
 describe('Page Components Smoke Tests', () => {
   const renderWithRouter = (ui: React.ReactElement, { route = '/' } = {}) => {
@@ -103,5 +104,15 @@ describe('Page Components Smoke Tests', () => {
       </MemoryRouter>
     );
     expect(screen.getByRole('heading', { name: /Pascal Archer/i })).toBeInTheDocument();
+  });
+
+  it('renders Archduke page correctly with all movements and text', () => {
+    renderWithRouter(<Archduke />);
+    expect(screen.getByRole('heading', { level: 1, name: /Beethoven’s Piano Trio Op\. 97, “Archduke”/i })).toBeInTheDocument();
+    expect(screen.getByText(/Ludwig van Beethoven \(1770–1827\)/i)).toBeInTheDocument();
+    expect(screen.getByText(/I\. Allegro moderato \(Fast\)/i)).toBeInTheDocument();
+    expect(screen.getByText(/II\. Scherzo \(Fast and light\)/i)).toBeInTheDocument();
+    expect(screen.getByText(/III\. Andante cantabile \(Slow\)/i)).toBeInTheDocument();
+    expect(screen.getByText(/IV\. Allegro moderato – Presto \(Fast\)/i)).toBeInTheDocument();
   });
 });

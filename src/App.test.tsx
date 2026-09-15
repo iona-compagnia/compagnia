@@ -9,4 +9,10 @@ describe('App Smoke Test', () => {
     const titleElements = screen.getAllByText(/Compagnia/i);
     expect(titleElements.length).toBeGreaterThan(0);
   });
+
+  it('renders Archduke page when navigating to /archduke', () => {
+    window.history.pushState({}, '', '/archduke');
+    render(<App />);
+    expect(screen.getByRole('heading', { level: 1, name: /Beethoven’s Piano Trio Op\. 97, “Archduke”/i })).toBeInTheDocument();
+  });
 });
