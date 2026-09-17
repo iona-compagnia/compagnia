@@ -22,9 +22,9 @@ describe('Page Components Smoke Tests', () => {
 
   it('renders Home page correctly', () => {
     renderWithRouter(<Home />);
-    // Check for Compagnia logo and the COMPAGNIA III announcement
+    // Check for Compagnia logo and the COMPAGNIA IV announcement
     expect(screen.getByAltText(/Compagnia Logo/i)).toBeInTheDocument();
-    expect(screen.getByText(/COMPAGNIA III/i)).toBeInTheDocument();
+    expect(screen.getByText(/COMPAGNIA IV/i)).toBeInTheDocument();
   });
 
   it('renders About page correctly', () => {

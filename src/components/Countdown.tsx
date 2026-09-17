@@ -5,9 +5,9 @@ import './Countdown.css';
 const getTargetDate = (): Date => {
   const now = new Date();
   const year = now.getFullYear();
-  let target = new Date(year, 8, 16, 19, 0, 0); // September 16 at 7:00 PM (19:00)
+  let target = new Date(year, 0, 15, 19, 0, 0); // January 15 at 7:00 PM (19:00)
   if (now.getTime() > target.getTime()) {
-    target = new Date(year + 1, 8, 16, 19, 0, 0);
+    target = new Date(year + 1, 0, 15, 19, 0, 0);
   }
   return target;
 };
@@ -56,16 +56,16 @@ const Countdown: FC = () => {
       <div className="countdown-pre-title">Buy tickets for</div>
       <h2 className="countdown-title">
         <a 
-          href="https://www.eventbrite.com/e/1997848905858?aff=oddtdtcreator" 
+          href="https://www.eventbrite.com/e/compagnia-iv-tickets-1997849102446?aff=oddtdtcreator" 
           target="_blank" 
           rel="noopener noreferrer"
           className="countdown-link"
         >
-          COMPAGNIA III
+          COMPAGNIA IV
         </a>
       </h2>
-      <div className="countdown-date-subtitle">September 16 at 7:00 PM</div>
-      <div className="countdown-clock" aria-label="Countdown timer to September 16 at 7 pm">
+      <div className="countdown-date-subtitle">January 15 at 7:00 PM</div>
+      <div className="countdown-clock" aria-label="Countdown timer to January 15 at 7 pm">
         <div className="countdown-item">
           <span className="countdown-value">{padZero(timeLeft.days)}</span>
           <span className="countdown-label">Days</span>
