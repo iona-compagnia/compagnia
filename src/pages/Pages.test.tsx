@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
@@ -40,6 +40,20 @@ describe('Page Components Smoke Tests', () => {
   it('renders Events page correctly', () => {
     renderWithRouter(<Events />);
     expect(screen.getByText(/Events/i)).toBeInTheDocument();
+    
+    const compagniaVIHeading = screen.getByRole('heading', { level: 2, name: /Compagnia VI/i });
+    const eventCard = (compagniaVIHeading.closest('.event-item') as HTMLElement)!;
+    expect(eventCard).toBeInTheDocument();
+
+    expect(within(eventCard).getByText('Ariel Horowitz, Violin')).toBeInTheDocument();
+    expect(within(eventCard).getByText('Jennifer Ahn, Violin')).toBeInTheDocument();
+    expect(within(eventCard).getByText('Hannah Burnett, Viola')).toBeInTheDocument();
+    expect(within(eventCard).getByText('Rosemary Nelis, Viola')).toBeInTheDocument();
+    expect(within(eventCard).getByText('Stephen Perkyns, Cello')).toBeInTheDocument();
+    expect(within(eventCard).getByText('Iona Batchelder, Cello')).toBeInTheDocument();
+
+    const ticketLink = within(eventCard).getByRole('link', { name: /Tickets on Eventbrite/i });
+    expect(ticketLink).toHaveAttribute('href', 'https://www.eventbrite.com/e/compagnia-vi-tickets-2004863928981?aff=oddtdtcreator');
   });
 
   it('renders Musicians page correctly', () => {

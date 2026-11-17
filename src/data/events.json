@@ -32,10 +32,17 @@
     "id": "compagnia-vi",
     "name": "Compagnia VI",
     "date": "June 2027",
-
     "location": "Marc A. Scorca Hall",
     "description": "Schoenberg Verklärte Nacht",
-    "musicians": []
+    "musicians": [
+      "Ariel Horowitz, Violin",
+      "Jennifer Ahn, Violin",
+      "Hannah Burnett, Viola",
+      "Rosemary Nelis, Viola",
+      "Stephen Perkyns, Cello",
+      "Iona Batchelder, Cello"
+    ],
+    "ticketLink": "https://www.eventbrite.com/e/compagnia-vi-tickets-2004863928981?aff=oddtdtcreator"
   },
   {
     "id": "compagnia-iii",
