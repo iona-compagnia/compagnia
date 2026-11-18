@@ -37,11 +37,12 @@ function generateRoutes() {
   }
 
   const allRoutes = [...new Set([...staticRoutes, ...musicianRoutes])];
+  const subrouteHtml = indexHtml.replace(/<link rel="preload" as="image"[^>]*>\s*/i, '');
 
   for (const route of allRoutes) {
     const routeDir = path.join(DIST_DIR, route);
     fs.mkdirSync(routeDir, { recursive: true });
-    fs.writeFileSync(path.join(routeDir, 'index.html'), indexHtml, 'utf-8');
+    fs.writeFileSync(path.join(routeDir, 'index.html'), subrouteHtml, 'utf-8');
   }
 
   console.log(`Generated static entrypoints for ${allRoutes.length} routes in dist/`);

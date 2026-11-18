@@ -12,6 +12,7 @@ const Home: FC = () => {
           src="/images/Compagnia V-1.jpeg" 
           alt="Compagnia Hero" 
           className="hero-image fill"
+          priority
         />
         <div className="hero-content">
           <div className="hero-box top">
@@ -21,6 +22,7 @@ const Home: FC = () => {
                   src="/images/logo-full.png"
                   alt="Compagnia Logo"
                   className="hero-logo"
+                  priority
                 />
               </div>
             </FadeIn>

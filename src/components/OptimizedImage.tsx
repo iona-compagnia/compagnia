@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import type { FC } from 'react';
 import './OptimizedImage.css';
 
@@ -7,12 +7,30 @@ interface OptimizedImageProps {
   alt: string;
   className?: string;
   imgStyle?: React.CSSProperties;
+  priority?: boolean;
 }
 
-const OptimizedImage: FC<OptimizedImageProps> = ({ src, alt, className = '', imgStyle }) => {
+const OptimizedImage: FC<OptimizedImageProps> = ({ 
+  src, 
+  alt, 
+  className = '', 
+  imgStyle,
+  priority = false 
+}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
+
+  // If the image was preloaded or is already in memory cache, mark as loaded
+  useEffect(() => {
+    const img = imgRef.current;
+    if (img && img.complete && img.naturalWidth > 0) {
+      const id = requestAnimationFrame(() => {
+        setIsLoaded(true);
+      });
+      return () => cancelAnimationFrame(id);
+    }
+  }, [src]);
 
   const handleLoad = () => {
     setIsLoaded(true);
@@ -38,7 +56,9 @@ const OptimizedImage: FC<OptimizedImageProps> = ({ src, alt, className = '', img
         key={src} // Force re-mount on src change
         src={src}
         alt={alt}
-        decoding="async"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchPriority={priority ? 'high' : 'auto'}
+        decoding={priority ? 'sync' : 'async'}
         className={`optimized-image ${isLoaded ? 'loaded' : 'loading'} ${hasError ? 'error' : ''}`}
         style={imgStyle}
         onLoad={handleLoad}
