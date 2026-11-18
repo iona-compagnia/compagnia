@@ -121,6 +121,32 @@ describe('Page Components Smoke Tests', () => {
     expect(screen.getByRole('heading', { name: /Pascal Archer/i })).toBeInTheDocument();
   });
 
+  it('renders Bio page for Stephen Perkyns correctly', () => {
+    render(
+      <MemoryRouter initialEntries={['/stephen-perkyns']}>
+        <Routes>
+          <Route path="/:musicianId" element={<Bio />} />
+        </Routes>
+      </MemoryRouter>
+    );
+    expect(screen.getByRole('heading', { name: /Stephen Perkyns/i })).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /Stephen Perkyns/i })).toHaveAttribute('src', '/images/Stephen Perkyns Headshot.jpg');
+    expect(screen.getByText(/Principal Cellist in the Fall of 2022/i)).toBeInTheDocument();
+  });
+
+  it('renders Bio page for Rosemary Nelis correctly', () => {
+    render(
+      <MemoryRouter initialEntries={['/rosemary-nelis']}>
+        <Routes>
+          <Route path="/:musicianId" element={<Bio />} />
+        </Routes>
+      </MemoryRouter>
+    );
+    expect(screen.getByRole('heading', { name: /Rosemary Nelis/i })).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /Rosemary Nelis/i })).toHaveAttribute('src', '/images/Rosemary Nelis.jpeg');
+    expect(screen.getByText(/imaginative playing in work that spans the great standard repertoire/i)).toBeInTheDocument();
+  });
+
   it('renders Archduke page correctly with all movements and text', () => {
     renderWithRouter(<Archduke />);
     expect(screen.getByRole('heading', { level: 1, name: /Beethoven’s Piano Trio Op\. 97, “Archduke”/i })).toBeInTheDocument();
